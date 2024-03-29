@@ -1,0 +1,1430 @@
+@mixin minwidth($width){
+	@media only screen and (min-width: $width){
+		@content;
+	}
+}
+@mixin maxwidth($width){
+	@media only screen and (max-width: $width){
+		@content;
+	}
+}
+$primaryFont: "Poppins", sans-serif;
+$primaryColor: #1a1a1a;
+$secondaryColor: #0d1931;
+$whiteColor: #fff;
+$skyBlue: #088178;
+$allHeading: 'h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6';
+body{
+    font-family: $primaryFont;
+    color: $secondaryColor;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    @include minwidth(1200px){
+        font-size: 18px;
+    }
+    @include minwidth(1400px){
+        font-size: 22px;
+    }
+}
+html{
+    scrollbar-width: thin;
+    scrollbar-color: #0d1931 #ddd;
+    &::-webkit-scrollbar{
+        width: 0.5vw;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: #0d1931;
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar-track{
+        background-color: #ddd;
+    }
+}
+#{$allHeading}{
+    font-weight: 600;
+}
+h1, .h1{
+    font-size: 28px;
+    font-weight: 500;
+    @include minwidth(768px){
+        font-size: 30px;
+    }
+    @include minwidth(992px){
+        font-size: 40px;
+    }
+    @include minwidth(1200px){
+        font-size: 50px;
+    }
+    @include minwidth(1400px){
+        font-size: 55px;
+    }
+}
+h2, .h2{
+    font-size: 25px;
+    font-weight: 700;
+    @include minwidth(768px){
+        font-size: 30px;
+    }
+    @include minwidth(992px){
+        font-size: 35px;
+    }
+    @include minwidth(1400px){
+        font-size: 40px;
+    }
+}
+h3, .h3{
+    font-size: 22px;
+    @include minwidth(992px){
+        font-size: 28px;
+    }
+    @include minwidth(1200px){
+        font-size: 35px;
+    }
+}
+h4, .h4{
+    font-size: 20px;
+    @include minwidth(992px){
+        font-size: 22px;
+    }
+    @include minwidth(1400px){
+        font-size: 30px;
+    }
+}
+h5, .h5{
+    font-size: 18px;
+    @include minwidth(1200px){
+        font-size: 22px;
+    }
+}
+h6, .h6{
+    font-size: 16px;
+}
+img{
+    max-width : 100%;
+    height : auto;
+    object-fit: cover;
+}
+a{
+    color: $primaryColor;
+    transition: 0.3s all;
+    text-decoration: none;
+    &:hover{
+        color: $skyBlue;
+    }
+}
+input[type=text],input[type=email],input[type=password],input[type=tel],input[type=url],input[type=search],[type=number],[type=file],textarea, select{
+    border: none;
+    padding: 0px 10px;
+    margin-bottom: 12px;
+    width: 100%; 
+    border-radius: 0px;  
+    height: 42px;
+    background-color: #eeeff2;
+    color: #0d1931;
+    outline-offset: 0px;
+    font-size: 15px;
+    color: $secondaryColor;
+    @include minwidth(1200px){
+        font-size: 17px;
+    }
+    &:focus{
+        outline: 1px solid #1797ff;
+    }
+    &::placeholder{
+        font-size: 15px;
+        color: #858585;
+        @include minwidth(1200px){
+            font-size: 17px;
+        }
+    }
+}
+input[type=checkbox]{
+    height: auto !important;
+}
+select{
+    font-size: 15px;
+    color: #858585;
+    @include minwidth(1200px){
+        font-size: 17px;
+    }
+}
+textarea{
+    height: 70px;
+    resize: none;
+    padding: 10px;
+}
+input[type=submit],input[type=button],button,.button,.btn-primary{
+    display: inline-block;
+    font-weight: 600;
+    line-height: 1.5;
+    color: $whiteColor;
+    background-color: $secondaryColor;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    padding: 8px 20px;
+    font-size: 16px;
+    transition: 0.4s all;
+    &:hover, &:active{
+        background-color: #23417d;
+        color: $whiteColor;
+        text-decoration: none;
+    }
+}
+ul{
+    padding-left: 20px;
+    list-style: "– ";
+}
+li{
+    list-style: none;
+    margin-bottom: 3px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+@mixin backgroundImgControl {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+// All section top and bottom padding: 
+.sectionPadding{
+    padding: 20px 0;
+    @include minwidth(1200px){
+        padding: 40px 0;
+    }
+}
+.sectionMargin{
+    margin: 20px 0;
+    @include minwidth(1200px){
+        margin: 40px 0;
+    }
+}
+
+// header section css code start: 
+#header{
+    background-color: #E3E6F3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 0 20px;
+    @include minwidth(576px){
+        padding: 0;
+    }
+    .container{
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 20px 0;
+    }
+    .logo{
+        width: 60%;
+        @include minwidth(768px){
+            width: 20%;
+        }
+        img{
+            width: 130px;
+        }
+    }
+    .menu_part{
+        width: 40%;
+        @include minwidth(768px){
+            width: 80%;
+        }
+        text-align: right;
+    }
+    #desktop_menu{
+        display: none;
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            padding-right: 40px;
+            position: relative;
+            &:last-child{
+                padding-right: 0;
+            }
+        }
+        a{
+            font-size: 18px;
+            font-weight: 600;
+            &::after{
+                position: absolute;
+                content: '';
+                width: 0;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: $skyBlue;
+                transition: 0.3s ease;
+            }
+            &.active{
+                color: $skyBlue;
+                &::after{
+                    width: 30%;
+                }
+            }
+            &:hover{
+                &::after{
+                    width: 30%;
+                }
+            }
+        }
+        @include minwidth(768px){
+            display: block;
+        }
+    }
+    #page{
+        #menu_bars{
+            font-size: 30px;
+        }
+        @include minwidth(768px){
+            display: none;
+        }
+    }
+}
+//banner section css code start: 
+#banner{
+    background-color: #ffffff;
+    padding-bottom: 30px;
+    @include minwidth(992px){
+        min-height: 520px;
+        padding-bottom: 0;
+    }
+    @include minwidth(1200px){
+        min-height: 580px;
+    }
+    @include minwidth(1400px){
+        min-height: 650px;
+    }
+    @include minwidth(1600px){
+        min-height: 850px;
+    }
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-top: 60px;
+        width: 100%;
+    }
+    .banner_text{
+        width: 100%;
+        @include maxwidth(991px){
+            order: 2;
+            text-align: center;
+        }
+        @include minwidth(992px){
+            width: 60%;
+        }
+        @include minwidth(1200px){
+            width: 50%;
+        }
+        @include minwidth(1600px){
+            width: 35%;
+        }
+        h1{
+            color: $skyBlue;
+            margin-bottom: 15px;
+        }
+        h2{
+            margin-bottom: 0;
+        }
+        h4{
+            margin-bottom: 10px;
+        }
+    }
+    .banner_img{
+        width: 100%;
+        @include maxwidth(991px){
+            order: 1;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        @include minwidth(992px){
+            width: 40%;
+        }
+        @include minwidth(1200px){
+            width: 50%;
+        }
+        @include minwidth(1600px){
+            width: 65%;
+        }
+        img{
+            width: 60%;
+            @include minwidth(992px){
+                width: 100%;
+            }
+            @include minwidth(1200px){
+                width: 75%;
+            }
+        }
+    }
+    .button{
+        background-color: transparent;
+        border: 0;
+        color: $skyBlue;
+        background-image: url('../img/button.png');
+        padding: 10px 40px;
+        @include backgroundImgControl();
+        transition: 0.3s ease;
+        &:hover{
+            color: #088179aa;
+        }
+    }
+}
+//feature section css code start: 
+#Feature {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .feature_box {
+        width: 210px;
+        margin:0 20px 20px 0;
+        text-align: center;
+        border: 1px solid #cce7d0;
+        transition: 0.3s ease;
+        padding: 15px 0;
+        &:nth-child(2) .feature_text {
+            background-color: #cdebbc;
+        }
+        &:nth-child(3) .feature_text {
+            background-color: #d1e8f2;
+        }
+        &:nth-child(4) .feature_text {
+            background-color: #cdd4f8;
+        }
+        &:nth-child(5) .feature_text {
+            background-color: #f6dbf6;
+        }
+        &:nth-child(6) .feature_text {
+            background-color: #fff2e5;
+        }
+        &:hover {
+            box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.05);
+        }
+        @include minwidth(768px){
+            width: 210px;
+            margin-right: 24px;
+
+        }
+        @include minwidth(1200px){
+            width: 175px;
+            margin:0 13px 0 0;
+            &:nth-last-child(1) {
+                margin-right: 0;
+            }
+        }
+        @include minwidth(1400px){
+            width: 201px;
+            margin-right: 18px;
+            padding: 20px 0;
+        }
+    }
+    .feature_text {
+        margin: 30px auto 15px auto;
+        width: 80%;
+        padding: 5px 10px;
+        text-align: center;
+        background-color: #fddde4;
+        h6 {
+            margin: 0;
+        }
+    }
+}
+// feature product section css code start: 
+.featureProduct{
+    .featureProductText{
+        width: 100%;
+        text-transform: capitalize;
+        text-align: center;
+        margin-bottom: 50px;
+        h2{
+            margin-bottom: 10px;
+        }
+        p{
+            font-size: 14px;
+            color: #000000b6;
+        }
+    }
+    .allFeatureProduct ,.pagination{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .fProduct{
+        width: 280px;
+        border: 1px solid #cce7d0;
+        border-radius:  15px;
+        padding: 10px;
+        transition: 0.3s ease;
+        margin: 0 0 20px 0;
+        cursor: pointer;
+        @include minwidth(576px){
+            width: 350px;
+        }
+        @include minwidth(992px){
+            width: 32.1%;
+            margin:0 17px 17px 0;
+            &:nth-child(3), &:nth-child(6), &:nth-child(8){
+                margin-right: 0;
+            }
+        }
+        @include minwidth(1200px){
+            width: 23.8%;
+            &:nth-child(3), &:nth-child(6){
+                margin:0 17px 17px 0;
+            }
+            &:nth-child(4), &:nth-child(8){
+                margin-right: 0;
+            }
+        }
+        @include minwidth(1400px){
+            width: 24%;
+        }
+        img{
+            width: 100%;
+            border-radius: 15px;
+        }
+        &:hover{
+            box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.06);
+        }
+    }
+    .fProductText{
+        padding: 20px 0;
+        text-align: start;
+        position: relative;
+        p{
+            font-size: 15px;
+            margin-bottom: 8px;
+            color: #606063;
+        }
+        h6{
+            text-transform: capitalize;
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+        .FPT_Reating{
+            font-size: 12px;
+            color: rgb(243, 181, 25);
+        }
+        h5{
+            margin: 10px 0;
+            color: #088178;
+        }
+        .FP_Cart{
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e8f6ea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 500;
+            color: #088178;
+            border: 1px solid #cce7d0;
+            transition: 0.3s ease;
+            cursor: pointer;
+            &:hover{
+                color: #0ecd25;
+            }
+        }
+    }
+    .pagination{
+        padding: 30px 0 10px 0;
+    }
+}
+//discount section css code start : 
+#discount{
+    text-transform: capitalize;
+    color: #fff;
+    text-align: center;
+    @include backgroundImgControl();
+    .container{
+        padding: 20px 0;
+        @include minwidth(768px){
+            padding: 40px 0;
+        }
+        @include minwidth(1200px){
+            padding: 80px 0;
+        }
+        h2{
+            margin: 10px 0 15px 0;
+            @include minwidth(992px){
+                margin-bottom: 30px;
+            }
+        }
+        span{
+            color: #ff0000ed;
+        }
+        button{
+            background-color: #fff;
+            color: #1a1a1a;
+            border-radius: 5px;
+            transition: 0.3s ease;
+            &:hover{
+                background-color: #088178;
+                color: #fff;
+            }
+        }
+    }
+}
+//new Arrival section css code start:
+.newArrival{
+    padding-top: 80px;
+}
+// offer and upcomming season section css code start : 
+#OfferUpcomming{
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        @include minwidth(992px){
+            justify-content: space-between;
+        }
+        .Offer{
+            width: 290px;
+            margin-bottom: 20px;
+            padding: 100px 20px;
+            color: #fff;
+            @include backgroundImgControl();
+            @include minwidth(576px){
+                width: 350px;
+            }
+            @include minwidth(768px){
+                width: 400px;
+            }
+            @include minwidth(992px){
+                width: 48.6%;
+                margin-bottom: 0;
+            }
+            @include minwidth(1400px){
+                width: 49%;
+            }
+        }
+        .oDescription{
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button{
+            background-color: transparent;
+            border: 1px solid #fff;
+            text-transform: capitalize;
+            transition: 0.3s ease;
+            &:hover{
+                background-color: #088178;
+                border-color: #088178;
+            }
+        }
+    }
+}
+//bannerTwo section css code start: 
+#bannerTwo{
+    padding-bottom: 40px;
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include minwidth(992px){
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .bannerbox{
+            width: 290px;
+            padding:90px 15px;
+            transition: transform 0.6s ease;
+            margin-bottom: 20px;
+            &:nth-last-child(1){
+                margin-bottom: 0
+            }
+            @include backgroundImgControl();
+            @include minwidth(576px){
+                width: 350px;
+            }
+            @include minwidth(768px){
+                width: 400px;
+            }
+            @include minwidth(992px){
+                width: 30%;
+                height: 240px;
+                margin: 0 19px 0 0;
+                &:nth-last-child(1){
+                    margin-right: 0;
+                }
+            }
+            &:hover{
+                transform: scale(1.1);
+            }
+
+        }
+        .bannerBoxTwo{
+            @include minwidth(992px){
+                width: 35.9%;
+            }
+            @include minwidth(1200px){
+                width: 36.5%;
+            }
+            @include minwidth(1400px){
+                width: 37%;
+            }
+        }
+        h4{
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        h6{
+            color: #ff0000d1;
+            text-transform: capitalize;
+        }
+    }
+
+}
+//newsletter section css code start: 
+#newsLetter{
+    z-index: 999;
+    background-repeat: no-repeat;
+    background-image: url('../img/banner/b14.png');
+    background-position: 20% 30%;
+    background-color: #041e42;
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+        @include minwidth(768px){
+            justify-content: space-between;
+            text-align: start;
+        }
+    }
+    .newsLetter_textPart{
+        width: 80%;
+        margin-bottom: 20px;
+        @include minwidth(576px){
+            width: 60%;
+        }
+        @include minwidth(768px){
+            width: 50%;
+            margin-bottom: 0;
+        }
+        @include minwidth(992px){
+            width: 60%;
+        }
+        @include minwidth(1200px){
+            width: 65%;
+        }
+        h4{
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+        .newsLetter_p{
+            font-size: 16px;
+            color: #818ea0;
+        }
+        p{
+            margin: 0;
+        }
+        span{
+            color: #ffbd27;
+        }
+    }
+    .newsLetter_from{
+        width: 80%;
+        display: flex;
+        height: 45px;
+        justify-content: center;
+        @include minwidth(576px){
+            width: 60%;
+        }
+        @include minwidth(768px){
+            width: 50%;
+        }
+        @include minwidth(768px){
+            width: 50%;
+        }
+        @include minwidth(992px){
+            width: 40%;
+        }
+        @include minwidth(1200px){
+            width: 35%;
+        }
+        input{
+            width: 150px;
+            height: 100%;
+            @include minwidth(576px){
+                width: 220px;
+            }
+            @include minwidth(992px){
+                width: 300px;
+            }
+        }
+        input::placeholder{
+            font-size: 14px;
+        }
+        button{
+            width: 100px;
+            height: 100%;
+            background-color: #088178;
+            @include minwidth(576px){
+                width: 110px;
+            }
+        }
+
+    }
+}
+//footer section css code start : 
+#footer{
+    padding-top: 40px;
+    @include minwidth(1200px){
+        padding-top: 80px;
+    }
+    .container{
+        text-align: start;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-transform: capitalize;
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        li{
+            list-style: none;
+            font-size: 14px;
+            @include minwidth(1200px){
+                font-size: 16px;
+            }
+        }
+        span{
+            font-weight: 600;
+        }
+    }
+    .contactText , .aboutText{
+        margin-bottom: 20px;
+        @include minwidth(768px){
+            margin-bottom: 0;
+        }
+    } 
+    .contactText{
+        width: 80%;
+        @include minwidth(576px){
+            width: 60%;
+        }
+        @include minwidth(768px){
+            width: 32%;
+        }
+        @include minwidth(992px){
+            width: 35%;
+        }
+        h5{
+            margin-top: 15px;
+            font-weight: 600;
+        }
+        .copyrightText{
+            font-size: 14px;
+        }
+    }
+    .aboutText{
+        width: 80%;
+        @include minwidth(576px){
+            width: 40%;
+        }
+        @include minwidth(768px){
+            width: 23%;
+        }
+        @include minwidth(992px){
+            width: 18%;
+        }
+    }
+    .accountText{
+        width: 80%;
+        margin-bottom: 20px;
+        @include minwidth(576px){
+            width: 40%;
+            margin-bottom: 0;
+        }
+        @include minwidth(768px){
+            width: 20%;
+        }
+        @include minwidth(992px){
+            width: 17%;
+        }
+    }
+    .installappText{
+        width: 80%;
+        @include minwidth(576px){
+            width: 60%;
+        }
+        @include minwidth(768px){
+            width: 25%;
+        }
+        @include minwidth(992px){
+            width: 30%;
+        }
+        p{
+            font-size: 16px;
+        }
+        .appstore{
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .payment{
+            width: 210px;
+        }
+        img{
+            width: 100%;
+        }
+        .singleAppstore{
+            width: 150px;
+            border: 1px solid #1a1a1a;
+            margin-right: 10px;
+            border-radius: 10px;
+            &:nth-last-child(1){
+                margin-right: 0;
+            }
+        }
+    }
+    
+}
+
+//shopPage css code start:
+#shopBanner{
+    color: #fff;
+    @include backgroundImgControl();
+    .container{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        min-height: 220px;
+        text-align: center;
+        @include minwidth(992px){
+            min-height: 280px;
+        }
+        @include minwidth(1200px){
+            min-height: 320px;
+        }
+    }
+    h2{
+        text-transform: lowercase;
+    }
+    .shopBanner_ptext{
+        font-size: 16px;
+    }
+}
+//Single product page css code start: 
+#productInfo{
+    padding: 40px 0 20px 0;
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .productImg, .productText{
+        margin: 0 auto;
+    }
+    .productImg{
+        width: 90%;
+        margin-bottom: 30px;
+        @include minwidth(576px){
+            width: 80%;
+        }
+        @include minwidth(768px){
+            width: 70%;
+        }
+        @include minwidth(992px){
+            width: 40%;
+            margin-bottom: 0;
+        }
+    }
+    .pMainImg{
+        cursor: pointer;
+        overflow: hidden;
+    }
+    .pSmallImg{
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        img{
+            width: 24%;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        img.clicked{
+            border-color: #041e42c8;
+        }
+    }
+    .productText{
+        width: 90%;
+        @include minwidth(576px){
+            width: 80%;
+        }
+        @include minwidth(768px){
+            width: 70%;
+        }
+        @include minwidth(992px){
+            width: 55%;
+        }
+        h5{
+            text-transform: capitalize;
+        }
+        .productSize{
+            margin-top: 20px;
+            width: 120px;
+        }
+    }
+    .cart{
+        display: flex;
+        width: 220px;
+        height: 50px;
+        margin: 10px 0 30px 0;
+        input{
+            width: 60px;
+            height: 50px;
+            margin-right: 10px;
+            @include minwidth(576px){
+                margin-right: 20px;
+            }
+        }
+        button{
+            width: 130px;
+            text-transform: capitalize;
+            background-color: #0b9a1cce;
+            border-radius: 5px;
+            text-align: center;
+            transition: 0.3s ease;
+            font-size: 14px;
+            @include minwidth(576px){
+                width: 140px;
+            }
+            &:hover{
+                background-color: #0ecd25;
+            }
+        }
+    }
+    .productDetials{
+        p{
+            font-size: 16px;
+        }
+    }
+}
+
+// blog page css code start: 
+#blog{
+    padding-top: 60px;
+    @include minwidth(576px){
+        padding-top: 80px;
+    }
+    @include minwidth(992px){
+        padding: 120px 0 40px 0;
+    }
+    .mainBolgPart{
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .singleBlog{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 70px;
+        @include minwidth(1200px){
+            margin-bottom: 90px;
+        }
+    }
+    .blogImg{
+        width: 290px;
+        position: relative;
+        @include maxwidth(991px){
+            margin: 0  auto 20px auto;
+        }
+        @include minwidth(576px){
+            width: 80%;
+        }
+        @include minwidth(992px){
+            width: 50%;
+        }
+        @include minwidth(1200px){
+            width: 58%;
+        }
+        img{
+            width: 100%;
+            height: 220px;
+            @include minwidth(768px){
+                height: 250px;
+            }
+            @include minwidth(1200px){
+                height: 350px;
+            }
+        }
+        h2{
+            position: absolute;
+            top: -25px;
+            left: 0;
+            color: #606063;
+            z-index: -100;
+            font-size: 30px;
+            @include minwidth(576px){
+                font-size: 40px;
+                top: -35px;
+            }
+            @include minwidth(992px){
+                font-size: 50px;
+                top: -40px;
+            }
+            @include minwidth(1200px){
+                font-size: 60px;
+                top: -50px;
+            }
+        }
+    }
+    .blogText{
+        width: 290px;
+        @include maxwidth(991px){
+            margin: 0  auto;
+        }
+        @include minwidth(576px){
+            width: 80%;
+        }
+        @include minwidth(992px){
+            width: 45%;
+        }
+        @include minwidth(1200px){
+            width: 38%;
+        }
+        h5{
+            text-transform: capitalize;
+        }
+        .blogP{
+            font-size: 16px;
+            padding-bottom: 7px;
+        }
+        a{
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            transition: 0.3s ease;
+            position: relative;
+            &::after{
+                position: absolute;
+                content: '';
+                background-color: #000000;
+                width: 60px;
+                height: 2px;
+                right: -80px;
+                top: 50%;
+                @include minwidth(1200px){
+                    width: 100px;
+                    right: -130px;
+                }
+            }
+            &:hover{
+                color: #606063;
+                &::after{
+                    background-color: #606063;
+                }
+            }
+        }
+    }
+}
+
+//about page css code start: 
+//about head section css code start:
+#aboutHead{
+    margin: 10px 0;
+    .aboutHeadInner{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        @include minwidth(992px){
+            justify-content: space-between;
+        }
+    }
+    .aboutHeadImgPart{
+        margin-bottom: 20px;
+        @include minwidth(992px){
+            margin-bottom: 0;
+        }
+    }
+    .aboutHeadImgPart, .aboutHeadTextPart{
+        width: 300px;
+        @include minwidth(576px){
+            width: 80%;
+        }
+        @include minwidth(992px){
+            width: 48%;
+        }
+    }
+    h2{
+        text-transform: capitalize;
+    }
+    p{
+        font-size: 14px;
+        @include minwidth(1200px){
+            font-size: 16px;
+        }
+    }
+    .otherText{
+        font-size: 16px;
+        margin-top: 15px;
+        @include minwidth(1200px){
+            font-size: 18px;
+        }
+    }
+    #marquee{
+        cursor: pointer;
+    }
+}
+//about app section css code start:
+#aboutApp{
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    transform: translateY(100%);
+    &.visible {
+        transform: translateY(0); 
+    }
+    .aboutAppInner{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        h2{
+            text-transform: capitalize;
+            margin-bottom: 20px;
+            @include minwidth(576px){
+                margin-bottom: 40px;
+            }
+        }
+        .aboutAppVideoPart{
+            width: 300px;
+            @include minwidth(576px){
+                width: 80%;
+            }
+        }
+        video{
+            width: 100%;
+            border-radius: 10px;
+        }
+    }
+}
+
+//contact page css code start: 
+// contact Details section css code start:
+#contectDetails{
+    .contectDetailsInner{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        @include minwidth(992px){
+            justify-content: space-between;
+        }
+    }
+    .contectDetailsText, .contectDetailsMap{
+        width: 300px;
+        @include minwidth(576px){
+            width: 80%;
+        }
+        @include minwidth(992px){
+            width: 48%;
+        }
+    }
+    .contectDetailsText{
+        @include maxwidth(991px){
+            order: 2;
+        }
+        span{
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 600;
+            color: #858585;
+        }
+        h4, h6{
+            text-transform: capitalize;
+            margin-top: 10px;
+        }
+        ul{
+            margin:10px 0 0 0;
+            padding: 0;
+            font-size: 16px;
+        }
+        li{
+            margin-bottom: 8px;
+        }
+        i{
+            margin-right: 10px;
+        }
+    }
+    .contectDetailsMap{
+        height: 250px;
+        @include maxwidth(991px){
+            margin-bottom: 30px;
+            order: 1;
+        }
+        @include minwidth(576px){
+            height: 300px;
+        }
+        @include minwidth(1200px){
+            height: 400px;
+        }
+        .map{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    
+}
+//contact form section css code start : 
+#contactForm{
+    .contactFormInner{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #818ea0d2;
+        border-radius: 10px;
+        padding: 30px 10px;
+        @include minwidth(576px){
+            padding: 50px 20px;
+        }
+        @include minwidth(992px){
+            justify-content: space-between;
+            padding:50px;
+        }
+    }
+    .Form, .contactMember{
+        width: 300px;
+        @include minwidth(576px){
+            width: 80%;
+        }
+    }
+    .Form{
+        @include maxwidth(991px){
+            margin-bottom: 30px;
+        }
+        @include minwidth(992px){
+            width: 55%;
+        }
+        @include minwidth(1200px){
+            width: 62%;
+        }
+        span{
+            font-size: 16px;
+            text-transform: uppercase;
+            color: #606063;
+            font-weight: 600;
+        }
+        h4{
+            text-transform: capitalize;
+            margin: 5px 0 30px 0;
+        }
+        button{
+            background: #088178;
+            border-radius: 5px;
+        }
+    }
+    .contactMember{
+        @include minwidth(992px){
+            width: 38%;
+        }
+        @include minwidth(1200px){
+            width: 32%;
+        }
+    }
+    .singleMember{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        &:nth-last-child(1){
+            margin-bottom: 0;
+        }
+        .memberImg{
+            width: 15%;
+            @include minwidth(992px){
+                width: 20%;
+            }
+        }
+        .memberText{
+            width: 80%;
+            @include minwidth(992px){
+                width: 75%;
+            }
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            text-transform: capitalize;
+        }
+        li{
+            margin-bottom: 4px;
+        }
+    }
+}
+//cart page css code start: 
+#cart{
+    padding-top: 60px;
+    .table-responsive{
+        @include maxwidth(767px){
+            overflow-x: auto;
+            .table{
+                width: 700px;
+            }
+        }
+    }
+    .table{
+        font-size: 16px;
+        th{
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        td {
+            vertical-align: middle; 
+            text-align: center;
+            
+        }
+        input{
+            width: 50px;
+        }
+        img{
+            width: 60px;
+            border-radius: 10px;
+        }
+    }
+}
