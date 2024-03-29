@@ -30,17 +30,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
         });
     };
 
-    mainImg.addEventListener('mousemove', handleMouseMove);
-    function handleMouseMove(event){
-        let rect = mainImg.getBoundingClientRect();
-        let offsetX = (event.clientX - rect.left) / rect.width - 0.5; 
-        let offsetY = (event.clientY - rect.top) / rect.height - 0.5; 
-        mainImg.style.transition = '0.1s';
-        mainImg.style.transform = ` scale(2) translate(${offsetX * 50}%, ${offsetY * 50}%)`;
-    }
-    mainImg.addEventListener('mouseout', ()=>{
-        mainImg.style.transition = '0.1s';
-        mainImg.style.transform = 'scale(1) translate(0, 0)';
+    $('.pMainImg').mousemove( function(event) {
+        let offsetXPercent = (100 * event.offsetX) / $(this).width();
+        let offsetYPercent = (100 * event.offsetY) / $(this).height();
+        $(".pMainImg_img").css('transform-origin', offsetXPercent + '%' + ' ' + offsetYPercent + '%');
+        $(".pMainImg_img").css('transform', 'scale(2)');
+        $(".pMainImg_img").css('transition', 'unset');
+    });
+    
+    $('.pMainImg').mouseleave(function(event){
+        $(".pMainImg_img").css('transform', '');
+        $(".pMainImg_img").css('transition', '0.2s ease-in-out');
     });
 });
 
