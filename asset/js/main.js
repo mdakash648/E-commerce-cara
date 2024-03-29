@@ -46,6 +46,17 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
 //About page javascript code start: 
+//About page javascript code start: 
+document.addEventListener('DOMContentLoaded', ()=>{
+    const marquee = document.getElementById('marquee');
+    marquee.addEventListener('mouseover', ()=>{
+        marquee.stop();
+    });
+    marquee.addEventListener('mouseout', ()=>{
+        marquee.start();
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     let callback = function(entries, observer) {
       entries.forEach(entry => {
@@ -64,4 +75,4 @@ document.addEventListener('DOMContentLoaded', function() {
   
     let aboutApp = document.getElementById('aboutApp');
     observer.observe(aboutApp);
-  });
+});
