@@ -46,22 +46,22 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
 //About page javascript code start: 
-document.addEventListener('DOMContentLoaded', ()=>{
-    const marquee = document.getElementById('marquee');
-    marquee.addEventListener('mouseover', ()=>{
-        marquee.stop();
+document.addEventListener('DOMContentLoaded', function() {
+    let callback = function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.transform = 'translate3d(0, 0px, 0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+  
+    let observer = new IntersectionObserver(callback, {
+      root: null, 
+      rootMargin: '0px',
+      threshold: 0.1 
     });
-    marquee.addEventListener('mouseout', ()=>{
-        marquee.start();
-    });
-});
-
-document.addEventListener("DOMContentLoaded", ()=>{
-    const aboutApp = document.getElementById('aboutApp');
-    
-    aboutHead.addEventListener('mouseenter', () => {
-        aboutApp.classList.add('visible');
-    });
-
-});
-
+  
+    let aboutApp = document.getElementById('aboutApp');
+    observer.observe(aboutApp);
+  });

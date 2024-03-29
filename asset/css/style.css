@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(../web_fonts/font.css);
 body {
   font-family: "Poppins", sans-serif;
   color: #0d1931;
@@ -307,11 +308,11 @@ td, th {
   padding: 0;
 }
 #header #desktop_menu li {
-  padding-right: 40px;
+  margin-right: 40px;
   position: relative;
 }
 #header #desktop_menu li:last-child {
-  padding-right: 0;
+  margin-right: 0;
 }
 #header #desktop_menu a {
   font-size: 18px;
@@ -322,10 +323,10 @@ td, th {
   content: "";
   width: 0;
   height: 2px;
-  bottom: 0;
+  bottom: -5px;
   left: 0;
   background-color: #088178;
-  transition: 0.3s ease;
+  transition: 0.3s ease-in-out;
 }
 #header #desktop_menu a.active {
   color: #088178;
@@ -334,7 +335,7 @@ td, th {
   width: 30%;
 }
 #header #desktop_menu a:hover::after {
-  width: 30%;
+  width: 100%;
 }
 @media only screen and (min-width: 768px) {
   #header #desktop_menu {
@@ -1449,11 +1450,9 @@ td, th {
 
 #aboutApp {
   overflow: hidden;
-  transition: transform 0.3s ease;
-  transform: translateY(100%);
-}
-#aboutApp.visible {
-  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+  transform: unset;
+  transform: translate3d(0, 100px, 0);
 }
 #aboutApp .aboutAppInner {
   display: flex;

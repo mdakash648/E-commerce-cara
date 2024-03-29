@@ -1,3 +1,4 @@
+@import url(../web_fonts/font.css);
 @mixin minwidth($width){
 	@media only screen and (min-width: $width){
 		@content;
@@ -254,10 +255,10 @@ td, th {
             padding: 0;
         }
         li{
-            padding-right: 40px;
+            margin-right: 40px;
             position: relative;
             &:last-child{
-                padding-right: 0;
+                margin-right: 0;
             }
         }
         a{
@@ -268,10 +269,10 @@ td, th {
                 content: '';
                 width: 0;
                 height: 2px;
-                bottom: 0;
+                bottom: -5px;
                 left: 0;
                 background-color: $skyBlue;
-                transition: 0.3s ease;
+                transition: 0.3s ease-in-out;
             }
             &.active{
                 color: $skyBlue;
@@ -281,7 +282,7 @@ td, th {
             }
             &:hover{
                 &::after{
-                    width: 30%;
+                    width: 100%;
                 }
             }
         }
@@ -1210,11 +1211,11 @@ td, th {
 //about app section css code start:
 #aboutApp{
     overflow: hidden;
-    transition: transform 0.3s ease;
-    transform: translateY(100%);
-    &.visible {
-        transform: translateY(0); 
-    }
+    transition: transform 0.3s ease-in-out;
+
+    transform: unset; 
+    transform: translate3d(0, 100px, 0); 
+    
     .aboutAppInner{
         display: flex;
         flex-direction: column;
