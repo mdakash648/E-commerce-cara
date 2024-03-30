@@ -105,6 +105,28 @@ $(document).ready(function() {
         items: {}
     };
 
+    // Function to reset clickData and update the display and localStorage
+    function resetClickData() {
+        // Reset clickData to its initial state
+        clickData.totalCount = 0;
+        clickData.items = {};
+
+        // Clear totalCount from localStorage
+        localStorage.removeItem('totalCount');
+
+        // Update the display
+        updateDisplay();
+
+        // Reset the display of totalCount
+        $('#busket').css('--busket-before-content', '"0"');
+    }
+
+    // Check if totalCount exists in localStorage and set it
+    if(localStorage.getItem('totalCount')) {
+        clickData.totalCount = parseInt(localStorage.getItem('totalCount'), 10);
+        $('#busket').css('--busket-before-content', '"' + clickData.totalCount + '"');
+    }
+
     $('.FP_Cart').click(function() {
         clickData.totalCount++;
 
@@ -115,6 +137,9 @@ $(document).ready(function() {
             clickData.items[itemId] = 1;
         }
 
+        // Save totalCount to localStorage
+        localStorage.setItem('totalCount', clickData.totalCount);
+
         // Update the display
         updateDisplay();
 
@@ -123,8 +148,14 @@ $(document).ready(function() {
         $('#busket').css('--busket-before-content', '"' + clickData.totalCount + '"');
     });
 
-    function updateDisplay() {}
+    // Add click event listener for elements with the "reset" class
+    $('.reset').click(function() {
+        // Reset the clickData and related components
+        resetClickData();
+    });
 
-    
-
+    function updateDisplay() {
+        // Update display based on clickData. This function should be implemented according to your needs.
+        // For example, you could update an element that shows the total count or list items in the cart.
+    }
 });

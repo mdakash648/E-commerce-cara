@@ -339,15 +339,17 @@ td, th {
   font-size: 18px;
   font-weight: 600;
 }
-#header #desk_menu a::after {
-  position: absolute;
-  content: "";
-  width: 0;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background-color: #088178;
-  transition: 0.3s ease-in-out;
+@media only screen and (min-width: 768px) {
+  #header #desk_menu a::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #088178;
+    transition: 0.3s ease-in-out;
+  }
 }
 #header #desk_menu a.active {
   color: #088178;
@@ -365,6 +367,10 @@ td, th {
   #header #desk_menu #menu {
     display: block;
   }
+}
+
+.active {
+  color: #088178 !important;
 }
 
 #busket {

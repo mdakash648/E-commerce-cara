@@ -282,15 +282,17 @@ td, th {
         a{
             font-size: 18px;
             font-weight: 600;
-            &::after{
-                position: absolute;
-                content: '';
-                width: 0;
-                height: 2px;
-                bottom: -5px;
-                left: 0;
-                background-color: $skyBlue;
-                transition: 0.3s ease-in-out;
+            @include minwidth(768px){
+                &::after{
+                    position: absolute;
+                    content: '';
+                    width: 0;
+                    height: 2px;
+                    bottom: -5px;
+                    left: 0;
+                    background-color: $skyBlue;
+                    transition: 0.3s ease-in-out;
+                }
             }
             &.active{
                 color: $skyBlue;
@@ -311,6 +313,9 @@ td, th {
             }
         }
     }
+}
+.active{
+    color: $skyBlue !important;
 }
 #busket{
     position: relative;
