@@ -312,6 +312,28 @@ td, th {
         }
     }
 }
+#busket{
+    position: relative;
+    &::before{
+        content:  var(--busket-before-content);
+        width: max-content;
+        min-width: 20px;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: 400;
+        font-size: 12px;
+        border-radius: 50%;
+        padding: 3px;
+        position: absolute;
+        // right: 0;
+        top: -15px;
+        background-color: red;
+        z-index: -1;
+    }
+}
 //banner section css code start: 
 #banner{
     background-color: #ffffff;
@@ -562,6 +584,11 @@ td, th {
             cursor: pointer;
             &:hover{
                 color: #0ecd25;
+            }
+            &::before{
+                content: "\f217";
+                font-family: "Font Awesome 6 Pro";
+                font-weight: 400;
             }
         }
     }

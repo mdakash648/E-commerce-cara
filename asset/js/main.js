@@ -97,3 +97,34 @@ $('input[name="product_quality"]').on('input', function() {
 
     $(this).css('width', width);
 });
+
+//menu cart icon add, total add to cart product quality number
+$(document).ready(function() {
+    var clickData = {
+        totalCount: 0,
+        items: {}
+    };
+
+    $('.FP_Cart').click(function() {
+        clickData.totalCount++;
+
+        var itemId = $(this).parent().attr('id');
+        if (clickData.items[itemId]) {
+            clickData.items[itemId]++;
+        } else {
+            clickData.items[itemId] = 1;
+        }
+
+        // Update the display
+        updateDisplay();
+
+        // For demonstration purposes, log the clickData object to the console
+        console.log(clickData);
+        $('#busket').css('--busket-before-content', '"' + clickData.totalCount + '"');
+    });
+
+    function updateDisplay() {}
+
+    
+
+});

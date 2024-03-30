@@ -1,0 +1,94 @@
+<style>
+    .main_box {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        width: calc(25% - (20px + 2px));
+        /* width: 20%; */
+        border: 1px solid black;
+        border-radius: 10px;
+        height: 300px;
+        background-color: yellowgreen;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 10px;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+
+    .add_cart_btn {
+        margin-top: 10px;
+    }
+</style>
+
+<div class="buskeet"></div>
+
+<div class="main_box">
+    <div class="box" id="box1">this is box 1
+        <button class="add_cart_btn">Add Cart</button>
+    </div>
+    <div class="box" id="box2">this is box 2
+        <button class="add_cart_btn">Add Cart</button>
+    </div>
+    <div class="box" id="box3">this is box 3
+        <button class="add_cart_btn">Add Cart</button>
+    </div>
+    <div class="box" id="box4">this is box 4
+        <button class="add_cart_btn">Add Cart</button>
+    </div>
+    <div class="box" id="box5">this is box 5
+        <button class="add_cart_btn">Add Cart</button>
+    </div>
+    <div class="box" id="box6">this is box 6
+        <button class="add_cart_btn">Add Cart</button>
+    </div>
+    <div class="box" id="box7">this is box 7
+        <button class="add_cart_btn">Add Cart</button>
+    </div>
+    <div class="box" id="box888">this is box 8
+        <button class="add_cart_btn">Add Cart</button>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var clickData = {
+            totalCount: 0,
+            items: {}
+        };
+    
+        $('.add_cart_btn').click(function() {
+            clickData.totalCount++;
+    
+            var itemId = $(this).parent().attr('id');
+            if (clickData.items[itemId]) {
+                clickData.items[itemId]++;
+            } else {
+                clickData.items[itemId] = 1;
+            }
+    
+            // Update the display
+            updateDisplay();
+    
+            // For demonstration purposes, log the clickData object to the console
+            console.log(clickData);
+        });
+    
+        function updateDisplay() {
+            var displayText = clickData.totalCount;
+            // for (var id in clickData.items) {
+            //     displayText += id + ": " + clickData.items[id] + " clicks<br>";
+            // }
+            
+            // Use .html() to update the content of the .buskeet element
+            $('.buskeet').html(displayText);
+        }
+    });
+    </script>
+    
