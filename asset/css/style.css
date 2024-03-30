@@ -226,7 +226,6 @@ ul {
 
 li {
   list-style: none;
-  margin-bottom: 3px;
 }
 
 table {
@@ -297,28 +296,50 @@ td, th {
     width: 80%;
   }
 }
-#header #desktop_menu {
+#header #mobileMenu {
   display: none;
 }
-#header #desktop_menu ul {
+@media only screen and (min-width: 768px) {
+  #header #mobileMenu {
+    display: none;
+  }
+}
+#header #desk_menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#header #desk_menu #menu_bars {
+  font-size: 30px;
+}
+@media only screen and (min-width: 768px) {
+  #header #desk_menu #menu_bars {
+    display: none;
+  }
+}
+#header #desk_menu ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   margin: 0;
   padding: 0;
 }
-#header #desktop_menu li {
-  margin-right: 40px;
+#header #desk_menu ul li {
+  margin-right: 20px;
   position: relative;
 }
-#header #desktop_menu li:last-child {
+#header #desk_menu ul li:last-of-type {
   margin-right: 0;
 }
-#header #desktop_menu a {
+#header #desk_menu > li {
+  margin-left: 20px;
+  position: relative;
+}
+#header #desk_menu a {
   font-size: 18px;
   font-weight: 600;
 }
-#header #desktop_menu a::after {
+#header #desk_menu a::after {
   position: absolute;
   content: "";
   width: 0;
@@ -328,26 +349,21 @@ td, th {
   background-color: #088178;
   transition: 0.3s ease-in-out;
 }
-#header #desktop_menu a.active {
+#header #desk_menu a.active {
   color: #088178;
 }
-#header #desktop_menu a.active::after {
-  width: 30%;
+#header #desk_menu a.active::after {
+  width: 50%;
 }
-#header #desktop_menu a:hover::after {
+#header #desk_menu a:hover::after {
   width: 100%;
 }
+#header #desk_menu #menu {
+  display: none;
+}
 @media only screen and (min-width: 768px) {
-  #header #desktop_menu {
+  #header #desk_menu #menu {
     display: block;
-  }
-}
-#header #page #menu_bars {
-  font-size: 30px;
-}
-@media only screen and (min-width: 768px) {
-  #header #page {
-    display: none;
   }
 }
 
@@ -1199,14 +1215,20 @@ td, th {
 }
 #productInfo .cart {
   display: flex;
-  width: 220px;
-  height: 50px;
+  width: -moz-max-content;
+  width: max-content;
+  height: -moz-max-content;
+  height: max-content;
   margin: 10px 0 30px 0;
 }
 #productInfo .cart input {
+  max-width: 120px;
+  min-width: 60px;
   width: 60px;
   height: 50px;
   margin-right: 10px;
+  margin-bottom: 0;
+  transition: 0.3s ease;
 }
 @media only screen and (min-width: 576px) {
   #productInfo .cart input {

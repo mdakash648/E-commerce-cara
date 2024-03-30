@@ -2,7 +2,7 @@
 document.addEventListener(
     "DOMContentLoaded", () => {
         const menu = new MmenuLight(
-            document.querySelector( "#menu" ),
+            document.querySelector( "#mobileMenu" ),
             "(max-width: 767px)"
         );
 
