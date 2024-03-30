@@ -76,3 +76,24 @@ document.addEventListener('DOMContentLoaded', function() {
     let aboutApp = document.getElementById('aboutApp');
     observer.observe(aboutApp);
 });
+
+//product_quality field flexible width js
+$('input[name="product_quality"]').on('input', function() {
+    let updatedValue = $(this).val();
+    let width = 60; // Declare width variable here so it's available in the whole scope
+
+    // Convert updatedValue to a number for comparison
+    let updatedValueNumber = Number(updatedValue);
+
+    if (updatedValueNumber <= 99) {
+        width = "60px";
+    } else if (updatedValueNumber > 99 && updatedValueNumber <= 99999999) {
+        let valueLength = updatedValue.toString().length; 
+        width = (50 + (valueLength - 1) * 10) + 'px'; 
+        console.log(valueLength);
+    } else {
+        width = "120px";
+    }
+
+    $(this).css('width', width);
+});
