@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Website</title>
+    <link rel="icon" href="asset/img/logo.png">
+    <link rel="stylesheet" href="asset/font-awesome-pro/all.css">
+    <link rel="stylesheet" href="asset/css/mmenu-light.css">
+    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="asset/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- header section code start -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="asset/img/logo.png" alt="Site Logo"></a>
+            </div>
+            <div class="menu_part">
+                <nav id="mobileMenu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contect.html">Contact</a></li>
+                        <li class="reset">reset</li>
+                    </ul>
+                </nav>
+                <div id="desk_menu">
+                    <a href="#menu" id="menu_bars"><i class="fa-solid fa-bars-staggered"></i></a>
+                    <nav id="menu">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contect.html">Contact</a></li>
+                            <li class="reset">reset</li>
+                        </ul>
+                    </nav>
+                    <li><a id="busket" href="cart.html"><i class="fa-duotone fa-cart-shopping"></i></a></li>
+                    <li><a href="#"><i class="fa-regular fa-magnifying-glass"></i></a></li>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--About banner section start:  -->
+    <section id="shopBanner"  style="background-image: url('asset/img/about/banner.png');">
+        <div class="container">
+            <h2>#cart</h2>
+            <div class="shopBanner_ptext">
+                <p>Add your coupon code & SAVE upto 70%!</p>
+            </div>
+        </div>
+    </section>
+    <!-- cart section start: -->
+    <section id="cart">
+        <div class="container">
+            <div class="cartInner">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col" class="col-1">remove</th>
+                            <th scope="col" class="col-1">image</th>
+                            <th scope="col" class="col-6 product">product</th>
+                            <th scope="col" class="col-2">price</th>
+                            <th scope="col" class="col-1">quantity</th>
+                            <th scope="col" class="col-1">subtotal</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><i class="fa-solid fa-trash"></i></td>
+                            <td><img src="asset/img/products/f1.jpg" alt="Cartoon Astronaut T-Shirts"></td>
+                            <td>Cartoon Astronaut T-Shirts</td>
+                            <td>$118.19</td>
+                            <td><input name="product_quality" min="1" type="number" value="1"></td>
+                            <td>$118.19</td>
+                          </tr>
+                          <tr>
+                            <td><i class="fa-solid fa-trash"></i></td>
+                            <td><img src="asset/img/products/f2.jpg" alt="Cartoon Astronaut T-Shirts"></td>
+                            <td>Cartoon Astronaut T-Shirts</td>
+                            <td>$118.19</td>
+                            <td><input type="number" value="1"></td>
+                            <td>$118.19</td>
+                          </tr>
+                          <tr>
+                            <td><i class="fa-solid fa-trash"></i></td>
+                            <td><img src="asset/img/products/f3.jpg" alt="Cartoon Astronaut T-Shirts"></td>
+                            <td>Cartoon Astronaut T-Shirts</td>
+                            <td>$118.19</td>
+                            <td><input type="number" value="1"></td>
+                            <td>$118.19</td>
+                          </tr>
+                          
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer section start  -->
+    <footer id="footer" class="sectionPadding">
+        <div class="container">
+            <div class="contactText">
+                <div class="logo">
+                    <img src="asset/img/logo.png" alt="footer logo">
+                </div>
+                <h5>contact</h5>
+                <ul>
+                    <li><span>Address:</span> 562 wellington road street 32 son francisco</li>
+                    <li><span>phone:</span> +012222365/(+91)0123456789</li>
+                    <li><span>hours:</span> 10:10-18:00, mon-sat</li>
+                </ul>
+                <h5>follow us</h5>
+                <ul class="socialIcon">
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+                <div class="copyrightText">
+                    <p>@ 2024. <a href="#">Nurul Imran</a> CEO of CoderIT</p>
+                </div>
+            </div>
+            <div class="aboutText">
+                <h5>About</h5>
+                <ul>
+                    <li>About us</li>
+                    <li>delivery information</li>
+                    <li>privacy policy</li>
+                    <li>terms & conditions</li>
+                    <li>contact us</li>
+                </ul>
+            </div>
+            <div class="accountText">
+                <h5>my account</h5>
+                <ul>
+                    <li>sign in</li>
+                    <li>view cart</li>
+                    <li>my wishlist</li>
+                    <li>track my order</li>
+                    <li>help</li>
+                </ul>
+            </div>
+            <div class="installappText">
+                <h5>Install app</h5>
+                <p>from app store or google play</p>
+                <div class="appstore">
+                    <div class="singleAppstore">
+                        <img src="asset/img/pay/app.jpg" alt="Apple app store">
+                    </div>
+                    <div class="singleAppstore">
+                        <img src="asset/img/pay/play.jpg" alt="google play">
+                    </div>
+                </div>
+                <p>secured payment gateways</p>
+                <div class="payment">
+                    <img src="asset/img/pay/pay.png" alt="payment method">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="asset/js/mmenu-light.js"></script>
+    <script src="asset/js/bootstrap.bundle.min.js"></script>
+    <script src="asset/js/main.js"></script>
+</body>
+</html>

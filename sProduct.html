@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Website</title>
+    <link rel="icon" href="asset/img/logo.png">
+    <link rel="stylesheet" href="asset/font-awesome-pro/all.css">
+    <link rel="stylesheet" href="asset/css/mmenu-light.css">
+    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="asset/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- header section code start -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="asset/img/logo.png" alt="Site Logo"></a>
+            </div>
+            <div class="menu_part">
+                <nav id="mobileMenu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contect.html">Contact</a></li>
+                        <li class="reset">reset</li>
+                    </ul>
+                </nav>
+                <div id="desk_menu">
+                    <a href="#menu" id="menu_bars"><i class="fa-solid fa-bars-staggered"></i></a>
+                    <nav id="menu">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contect.html">Contact</a></li>
+                            <li class="reset">reset</li>
+                        </ul>
+                    </nav>
+                    <li><a id="busket" href="cart.html"><i class="fa-duotone fa-cart-shopping"></i></a></li>
+                    <li><a href="cart.html"><i class="fa-regular fa-magnifying-glass"></i></a></li>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Product info section code start: -->
+    <section id="productInfo" class="sectionPadding">
+        <div class="container">
+            <div class="productImg">
+                <div class="pMainImg">
+                    <img class="pMainImg_img" src="asset/img/products/f1.jpg" id="mainImg" alt="shirts image">
+                </div>
+                <div class="pSmallImg">
+                    <img src="asset/img/products/f1.jpg" class="singleImg" alt="shirts image">
+                    <img src="asset/img/products/f2.jpg" class="singleImg" alt="shirts image">
+                    <img src="asset/img/products/f3.jpg" class="singleImg" alt="shirts image">
+                    <img src="asset/img/products/f4.jpg" class="singleImg" alt="shirts image">
+                </div>
+            </div>
+            <div class="productText">
+                <h6>Home/ T-Shirt</h6>
+                <h5>men's fashion t-shirt</h5>
+                <h2 id="setPrice">$ 70</h2>
+                <div class="productSize">
+                    <select name="Select Size" id="cloth">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                        <option value="xl">XL</option>
+                        <option value="xxl">XXl</option>
+                    </select>
+                </div>
+                <form class="cart">
+                    <input type="number" name="product_quality" value="1" max="999999999">
+                    <button>add to cart</button>
+                </form>
+                <div class="productDetials">
+                    <h5>product details</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi accusantium vitae ab, porro temporibus maxime, cumque ipsum voluptates sunt molestiae harum labore! Eum dolorum sit asperiores doloribus architecto dicta commodi dolor id quis, voluptates necessitatibus neque fuga, explicabo modi eligendi sed officia. Earum facere sint sit doloribus rerum assumenda ab.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- feature product section start -->
+    <section class="sectionPadding featureProduct">
+        <div class="container">
+            <div class="featureProductText">
+                <h2>feature products</h2>
+                <p>summer collection new morden design</p>
+            </div>
+            <div class="allFeatureProduct">
+                <div class="fProduct">
+                    <div class="fProductImg">
+                        <img src="asset/img/products/f1.jpg" alt="Cartoon astronaut T-shirts">
+                    </div>
+                    <div class="fProductText">
+                        <p>adidas</p>
+                        <h6>cartoon astronaut t-shirts</h6>
+                        <div class="FPT_Reating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <h5>$78</h5>
+                      <div class="FP_Cart"></div>
+                    </div>
+                </div>
+                <div class="fProduct">
+                    <div class="fProductImg">
+                        <img src="asset/img/products/f2.jpg" alt="Cartoon astronaut T-shirts">
+                    </div>
+                    <div class="fProductText">
+                        <p>adidas</p>
+                        <h6>cartoon astronaut t-shirts</h6>
+                        <div class="FPT_Reating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <h5>$72</h5>
+                        <div class="FP_Cart"></div>
+                    </div>
+                </div>
+                <div class="fProduct">
+                    <div class="fProductImg">
+                        <img src="asset/img/products/f3.jpg" alt="Cartoon astronaut T-shirts">
+                    </div>
+                    <div class="fProductText">
+                        <p>adidas</p>
+                        <h6>cartoon astronaut t-shirts</h6>
+                        <div class="FPT_Reating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <h5>$53</h5>
+                        <div class="FP_Cart"></div>
+                    </div>
+                </div>
+                <div class="fProduct">
+                    <div class="fProductImg">
+                        <img src="asset/img/products/f4.jpg" alt="Cartoon astronaut T-shirts">
+                    </div>
+                    <div class="fProductText">
+                        <p>adidas</p>
+                        <h6>cartoon astronaut t-shirts</h6>
+                        <div class="FPT_Reating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <h5>$85</h5>
+                      <div class="FP_Cart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Newsletter section start:  -->
+    <section id="newsLetter" class="sectionPadding">
+        <div class="container">
+            <div class="newsLetter_textPart">
+                <h4>sing up for newsletters</h4>
+                <div class="newsLetter_p">
+                    <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+                </div>
+            </div>
+            <div class="newsLetter_from">
+                <input type="text" placeholder="Your email address" required>
+                <button class="button">sign up</button>
+            </div>
+        </div>
+    </section>
+    <!-- footer section start  -->
+    <footer id="footer" class="sectionPadding">
+        <div class="container">
+            <div class="contactText">
+                <div class="logo">
+                    <img src="asset/img/logo.png" alt="footer logo">
+                </div>
+                <h5>contact</h5>
+                <ul>
+                    <li><span>Address:</span> 562 wellington road street 32 son francisco</li>
+                    <li><span>phone:</span> +012222365/(+91)0123456789</li>
+                    <li><span>hours:</span> 10:10-18:00, mon-sat</li>
+                </ul>
+                <h5>follow us</h5>
+                <ul class="socialIcon">
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+                <div class="copyrightText">
+                    <p>@ 2024. <a href="#">Nurul Imran</a> CEO of CoderIT</p>
+                </div>
+            </div>
+            <div class="aboutText">
+                <h5>About</h5>
+                <ul>
+                    <li>About us</li>
+                    <li>delivery information</li>
+                    <li>privacy policy</li>
+                    <li>terms & conditions</li>
+                    <li>contact us</li>
+                </ul>
+            </div>
+            <div class="accountText">
+                <h5>my account</h5>
+                <ul>
+                    <li>sign in</li>
+                    <li>view cart</li>
+                    <li>my wishlist</li>
+                    <li>track my order</li>
+                    <li>help</li>
+                </ul>
+            </div>
+            <div class="installappText">
+                <h5>Install app</h5>
+                <p>from app store or google play</p>
+                <div class="appstore">
+                    <div class="singleAppstore">
+                        <img src="asset/img/pay/app.jpg" alt="Apple app store">
+                    </div>
+                    <div class="singleAppstore">
+                        <img src="asset/img/pay/play.jpg" alt="google play">
+                    </div>
+                </div>
+                <p>secured payment gateways</p>
+                <div class="payment">
+                    <img src="asset/img/pay/pay.png" alt="payment method">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="asset/js/mmenu-light.js"></script>
+    <script src="asset/js/bootstrap.bundle.min.js"></script>
+    <script src="asset/js/main.js"></script>
+</body>
+</html>

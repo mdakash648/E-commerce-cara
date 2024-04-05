@@ -1,0 +1,18 @@
+/*================================
+Theme Name: Cara-ecommerce
+Theam URI: #
+Version: 1.0.0
+Author: Akash
+Author URI: https://www.facebook.com/akash.nazmul648/
+Text Domain: cara
+Description: FabThreads is a sleek and sophisticated WordPress theme tailor-made for those looking to establish a chic and trendy cloth ecommerce website. With its intuitive design and seamless functionality, FabThreads empowers you to showcase your clothing collection with flair while providing an unparalleled shopping experience for your customers.
+Tags: Fashion Ecommerce, Clothing Store, Online Boutique, Chic Design, e-commerce, woocommerce
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+================================*/
+.added_to_cart{
+    display: none !important;
+}
+input[type=submit], input[type=button], button, .button, .btn-primary, input[type=submit]:hover, input[type=submit]:active, input[type=button]:hover, input[type=button]:active, button:hover, button:active, .button:hover, .button:active, .btn-primary:hover, .btn-primary:active {
+    all: unset;
+}
