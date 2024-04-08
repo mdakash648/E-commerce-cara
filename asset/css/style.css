@@ -368,6 +368,29 @@ td, th {
     display: block;
   }
 }
+#header #desk_menu .cart {
+  position: relative;
+}
+#header #desk_menu .cart::after {
+  content: var(--cart-content, "");
+  position: absolute;
+  top: -10px;
+  z-index: -1;
+  background-color: red;
+  min-width: 20px;
+  min-height: 20px;
+  width: -moz-max-content;
+  width: max-content;
+  height: -moz-max-content;
+  height: max-content;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
 
 .current-menu-item a, .current_page_item a {
   color: #088178 !important;
@@ -701,7 +724,7 @@ td, th {
 .featureProduct .fProductText_bottom h5 ins {
   text-decoration: none;
 }
-.featureProduct .fProductText_bottom .product_type_variable {
+.featureProduct .fProductText_bottom .product_type_variable, .featureProduct .fProductText_bottom .product_type_simple {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -716,13 +739,33 @@ td, th {
   transition: 0.3s ease;
   cursor: pointer;
 }
-.featureProduct .fProductText_bottom .product_type_variable:hover {
+.featureProduct .fProductText_bottom .product_type_variable::after, .featureProduct .fProductText_bottom .product_type_simple::after {
+  position: absolute;
+  bottom: -17px;
+  width: -moz-max-content;
+  width: max-content;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-out;
+  font-size: 12px;
+  transform: translateY(5px);
+}
+.featureProduct .fProductText_bottom .product_type_variable:hover, .featureProduct .fProductText_bottom .product_type_simple:hover {
   color: #0ecd25;
 }
-.featureProduct .fProductText_bottom .product_type_variable::before {
+.featureProduct .fProductText_bottom .product_type_variable:hover::after, .featureProduct .fProductText_bottom .product_type_simple:hover::after {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+.featureProduct .fProductText_bottom .product_type_variable::before, .featureProduct .fProductText_bottom .product_type_simple::before {
   content: "\f217";
   font-family: "Font Awesome 6 Pro";
   font-weight: 400;
+}
+.featureProduct .fProductText_bottom .product_type_variable::before {
+  content: "\f475";
+  font-weight: 900;
 }
 .featureProduct .pagination {
   padding: 30px 0 10px 0;
@@ -765,6 +808,9 @@ td, th {
   color: #1a1a1a;
   border-radius: 5px;
   transition: 0.3s ease;
+  padding: 8px 20px;
+  font-size: 16px;
+  font-weight: 600;
 }
 #discount .container button:hover {
   background-color: #088178;
@@ -772,7 +818,7 @@ td, th {
 }
 
 .newArrival {
-  padding-top: 80px;
+  margin-top: 80px;
 }
 
 #OfferUpcomming .container {
@@ -786,33 +832,25 @@ td, th {
   }
 }
 #OfferUpcomming .container .Offer {
-  width: 290px;
-  margin-bottom: 20px;
+  width: 100%;
   padding: 100px 20px;
   color: #fff;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-@media only screen and (min-width: 576px) {
-  #OfferUpcomming .container .Offer {
-    width: 350px;
-  }
+  background-color: rgba(0, 0, 0, 0.2392156863);
+  background-blend-mode: multiply;
+  margin-bottom: 10px;
 }
 @media only screen and (min-width: 768px) {
   #OfferUpcomming .container .Offer {
-    width: 400px;
+    width: 80%;
   }
 }
 @media only screen and (min-width: 992px) {
   #OfferUpcomming .container .Offer {
-    width: 48.6%;
-    margin-bottom: 0;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  #OfferUpcomming .container .Offer {
-    width: 49%;
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
   }
 }
 #OfferUpcomming .container .oDescription {
@@ -824,83 +862,71 @@ td, th {
   border: 1px solid #fff;
   text-transform: capitalize;
   transition: 0.3s ease;
+  background-color: transparent;
+  border: 1px solid #fff;
+  text-transform: capitalize;
+  transition: 0.3s ease;
+  color: white;
+  font-size: 16px;
+  padding: 8px 20px;
 }
 #OfferUpcomming .container button:hover {
   background-color: #088178;
   border-color: #088178;
 }
 
-#bannerTwo {
-  padding-bottom: 40px;
+#collection {
+  margin-bottom: 40px;
 }
-#bannerTwo .container {
+#collection .container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
 }
-@media only screen and (min-width: 992px) {
-  #bannerTwo .container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+@media only screen and (min-width: 768px) {
+  #collection .container {
+    justify-content: center;
   }
 }
-#bannerTwo .container .bannerbox {
-  width: 290px;
-  padding: 90px 15px;
-  transition: transform 0.6s ease;
-  margin-bottom: 20px;
+@media only screen and (min-width: 768px) {
+  #collection .container {
+    justify-content: flex-start;
+  }
+}
+#collection .container .collectionMain {
+  overflow: hidden;
+  width: 100%;
+  min-height: 100%;
+  background-color: red;
+  margin: 5px 5px;
+}
+@media only screen and (min-width: 768px) {
+  #collection .container .collectionMain {
+    width: calc(50% - 10px);
+  }
+}
+@media only screen and (min-width: 1200px) {
+  #collection .container .collectionMain {
+    width: calc(var(--min-1200-width) - 10px);
+  }
+}
+#collection .container .collectionbox {
+  text-align: center;
+  padding: 50px 0;
+  height: 100%;
+  transition: 0.5s ease;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-#bannerTwo .container .bannerbox:nth-last-child(1) {
-  margin-bottom: 0;
-}
-@media only screen and (min-width: 576px) {
-  #bannerTwo .container .bannerbox {
-    width: 350px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  #bannerTwo .container .bannerbox {
-    width: 400px;
-  }
-}
-@media only screen and (min-width: 992px) {
-  #bannerTwo .container .bannerbox {
-    width: 30%;
-    height: 240px;
-    margin: 0 19px 0 0;
-  }
-  #bannerTwo .container .bannerbox:nth-last-child(1) {
-    margin-right: 0;
-  }
-}
-#bannerTwo .container .bannerbox:hover {
+#collection .container .collectionbox:hover {
   transform: scale(1.1);
 }
-@media only screen and (min-width: 992px) {
-  #bannerTwo .container .bannerBoxTwo {
-    width: 35.9%;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  #bannerTwo .container .bannerBoxTwo {
-    width: 36.5%;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  #bannerTwo .container .bannerBoxTwo {
-    width: 37%;
-  }
-}
-#bannerTwo .container h4 {
+#collection .container h4 {
   color: #fff;
   font-weight: 700;
   text-transform: uppercase;
 }
-#bannerTwo .container h6 {
+#collection .container h6 {
   color: rgba(255, 0, 0, 0.8196078431);
   text-transform: capitalize;
 }
@@ -1018,14 +1044,14 @@ td, th {
   font-size: 14px;
 }
 #newsLetter .newsLetter_from button {
-  width: 100px;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 0 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
   height: 100%;
   background-color: #088178;
-}
-@media only screen and (min-width: 576px) {
-  #newsLetter .newsLetter_from button {
-    width: 110px;
-  }
 }
 
 #footer {

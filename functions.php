@@ -29,4 +29,8 @@ register_nav_menu('main_menu', __('Main Menu', 'cara'));
 require_once 'inc/acf_option.php';
 require_once 'inc/wc-customize.php';
 include  'inc/acf-save-changes-keyshort.php' ;
-include  'inc/acf_choice_field_up_category.php' ;
+// include  'inc/acf_choice_field_up_category.php' ;
+include  'inc/cart_pro_count.php' ;
+
+
+

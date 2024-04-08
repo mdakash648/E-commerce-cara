@@ -87,12 +87,12 @@ if (have_rows('easy_content')) {
             <div class="allFeatureProduct">
 
                 <?php
-                $category_slug =  get_sub_field('product_category')['value']; // Replace 'your-category-slug' with the slug of the category you want to filter by.
+                $category_slug =  get_sub_field('product_category')->slug; // Replace 'your-category-slug' with the slug of the category you want to filter by.
 
                 $args = array(
                     'post_type' => 'product',
-                    // 'post_status' => 'publish',
-                    'posts_per_page' => -1, // Adjust the number of products to display. Use -1 for all products.
+                    'post_status' => 'publish',
+                    'posts_per_page' => get_sub_field('product_posts_per_page'), // Adjust the number of products to display. Use -1 for all products.
                     'tax_query' => array(
                         array(
                             'taxonomy' => 'product_cat',
@@ -127,6 +127,14 @@ if (have_rows('easy_content')) {
                             <div class="fProductText_bottom">
                                 <h5><?php echo $product->get_price_html(); ?></h5>
                                 <?php woocommerce_template_loop_add_to_cart();?>
+                                <style>
+                                    .product_type_simple::after{
+                                        content:"<?php echo esc_html(get_sub_field('product_filter_add_content'))?>";
+                                    }
+                                    .product_type_variable::after{
+                                        content:"<?php echo esc_html(get_sub_field('product_filter_see_content'))?>";
+                                    }
+                                </style>
                             </div>
                         </div>
                 <?php 
@@ -134,7 +142,7 @@ if (have_rows('easy_content')) {
                     the_posts_pagination();
                     wp_reset_postdata(); // Important: Reset query data after the loop 
                 else :
-                    echo '<p>There are no products in'.' '.get_sub_field('product_category')['label'] .' '.'cetagory.</p>';
+                    echo '<p>There are no products in'.' '.get_sub_field('product_category')->name .' '.'cetagory.</p>';
                 endif;
                 ?>
 
@@ -145,6 +153,154 @@ if (have_rows('easy_content')) {
     </section>
     <!-- Product Filter Section Start -->
 <?php endif;?>
+<?php if( get_row_layout() == 'repair_services' ): ?>
+    <?php 
+        $repair_btn_url = get_sub_field('repair_services_button')?get_sub_field('repair_services_button')['url']:'#';
+        $repair_btn_title = get_sub_field('repair_services_button')?get_sub_field('repair_services_button')['title']:'explore more';
+        $repair_btn_target = get_sub_field('repair_services_button')?get_sub_field('repair_services_button')['target']:'_self';
+    ?>
+    <!-- discount section starat -->
+    <section id="discount" class="sectionPadding" style="background-image: url('<?php $repair_bd_img= get_sub_field('repair_services_bg_img')?get_sub_field('repair_services_bg_img'):(get_template_directory_uri().'/asset/img/banner/b2.jpg');echo esc_html($repair_bd_img);?>');">
+        <div class="container">
+            <p><?php echo esc_html(get_sub_field('repair_services_title'))?></p>
+            <h2><?php echo get_sub_field('repair_services_discount_title')?></h2>
+            <a href="<?php echo  esc_html($repair_btn_url)?>" target="<?php echo  esc_html($repair_btn_target)?>"><button><?php echo  esc_html($repair_btn_title)?></button></a>
+        </div>
+    </section>
+    
+<?php endif;?>
+
+<?php if( get_row_layout() == 'offer_up_comming' ): ?>
+    <?php if (have_rows('offer_up_comming_card')): ?>
+        <!-- Offer&Upcomming section -->
+        <section id="OfferUpcomming" class="sectionPadding">
+            <div class="container">
+                <?php while (have_rows('offer_up_comming_card')): the_row(); ?>
+                    <div class="Offer" style="background-image: url('<?php $offer_up_bg = get_sub_field('offer_up_comming_card_bg_img')?get_sub_field('offer_up_comming_card_bg_img'):(get_template_directory_uri().'/asset/img/banner/b17.jpg'); echo $offer_up_bg;?>');">
+                        <h5><?php echo esc_html(get_sub_field('offer_up_comming_card_1st_title'))?></h5>
+                        <h3><?php echo esc_html(get_sub_field('offer_up_comming_card_2nd_title'))?></h3>
+                        <div class="oDescription">
+                            <p><?php echo esc_html(get_sub_field('offer_up_comming_card_3rd_title'))?></p>
+                        </div>
+                        <?php 
+                        $offer_up_btn_url = get_sub_field('offer_up_comming_card_button')?get_sub_field('offer_up_comming_card_button')['url']:'#';
+                        $offer_up_btn_title = get_sub_field('offer_up_comming_card_button')?get_sub_field('offer_up_comming_card_button')['title']:'learn more';
+                        $offer_up_btn_target = get_sub_field('offer_up_comming_card_button')?get_sub_field('offer_up_comming_card_button')['target']:'_self';
+                        ?>
+                        <a href="<?php echo $offer_up_btn_url?>" target="<?php echo $offer_up_btn_target?>"><button><?php echo $offer_up_btn_title?></button></a>
+                    </div>
+                <?php endwhile; ?> 
+            </div>
+        </section>
+    <?php endif; ?>
+<?php endif;?>
+<?php if( get_row_layout() == 'collection' ): ?>
+    <?php if (have_rows('collection_card')): ?>
+        <!-- Collection  section start:  -->
+    <section id="collection">
+        <div class="container">
+            <?php $conll_card_cont = 0; while (have_rows('collection_card')): the_row(); ?>
+                <div class="collectionMain">
+                    <div class="collectionbox" style="background-image: url('<?php $collectionbox_img = get_sub_field('collection_card_background_image')?get_sub_field('collection_card_background_image'):(get_template_directory_uri().'/asset/img/banner/b7.jpg');echo $collectionbox_img;?>');">
+                        <h4><?php echo esc_html(get_sub_field('collection_card_title'))?></h4>
+                        <h6><?php echo esc_html(get_sub_field('collection_card_sub_title'))?></h6>
+                    </div>
+                </div>
+            <?php $conll_card_cont++; endwhile; ?> 
+            <?php if($conll_card_cont > 1 && $conll_card_cont < 5):?>
+                <style>
+                    .collectionMain{
+                        --min-1200-width:<?php echo 100/$conll_card_cont;?>%;
+                    }
+                </style>
+            <?php elseif($conll_card_cont == 1):?>
+                <style>
+                    .collectionMain{
+                        --min-1200-width:50%;
+                    }
+                </style>
+            <?php else:?>
+                <style>
+                    .collectionMain{
+                        --min-1200-width:25%;
+                    }
+                </style>
+            <?php endif;?>
+        </div>
+    </section>
+    <?php endif; ?>
+<?php endif;?>
+
+<?php if( get_row_layout() == 'shop' ): ?>
+    <!-- Product Filter Section Start -->
+    <section class="sectionPadding newArrival featureProduct">
+        <div class="container">
+            <div class="allFeatureProduct">
+
+                <?php
+                $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1; // Step 2: Get current page number.
+                $args = array(
+                    'post_type' => 'product',
+                    'post_status' => 'publish',
+                    'posts_per_page' => 12, // Adjust the number of products to display. Use -1 for all products.
+                    'paged' => $paged, // Include the current page.
+                );
+                $project_query = new WP_Query($args);
+                if ($project_query->have_posts()) :
+                    while ($project_query->have_posts()) : $project_query->the_post();
+                    global $product;
+                    $product = wc_get_product(get_the_ID()); // Ensure $product is the correct product object
+                    ?>
+
+                        <div class="fProduct">
+                            <div class="fProducttop">
+                               <a href="sProduct.html" class="fProductImg">
+                                   <img src="<?php $product_filter_img_url = get_the_post_thumbnail_url()?get_the_post_thumbnail_url():(get_template_directory_uri().'/asset/img/products/n1.jpg'); echo $product_filter_img_url; ?>" alt="<?php $product_filter_img_alt = get_the_title()?get_the_title():'Product Image';echo $product_filter_img_alt;?>">
+                               </a>
+                               <p class="company_name"><?php echo esc_html(get_field('company_name'));?></p>
+                               <a class = "fProduct_title" href="sProduct.html"><?php the_title()?></a>
+                               <?php 
+                               $rating_html = wc_get_rating_html($product->get_average_rating());
+
+                                // Check if rating exists and display it
+                                if (!empty($rating_html)) {
+                                    echo $rating_html;
+                                }?>
+                               
+                            </div>
+                            <div class="fProductText_bottom">
+                                <h5><?php echo $product->get_price_html(); ?></h5>
+                                <?php woocommerce_template_loop_add_to_cart();?>
+                                <style>
+                                    .product_type_simple::after{
+                                        content:"<?php echo esc_html('Simple Product')?>";
+                                    }
+                                    .product_type_variable::after{
+                                        content:"<?php echo esc_html('Variavle Product')?>";
+                                    }
+                                </style>
+                            </div>
+                        </div>
+                <?php 
+                    endwhile;
+                      // Step 3: Display pagination links.
+                $big = 999999999; // Need an unlikely integer.
+                echo paginate_links(array(
+                    'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+                    'format' => '?paged=%#%',
+                    'current' => max(1, get_query_var('paged')),
+                    'total' => $project_query->max_num_pages,
+                ));
+                    wp_reset_postdata(); // Important: Reset query data after the loop 
+                else :
+                    echo '<p>No Product</p>';
+                endif;?>
+            </div>
+        </div>
+    </section>
+    <!-- Product Filter Section Start -->
+<?php endif;?>
+
 
 <?php
     $j++;

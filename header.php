@@ -8,6 +8,37 @@
 </head>
 <body contenteditable="false" <?php body_class(); ?>>
     <!-- header section code start -->
+
+<script>
+jQuery(document).ready(function($) {
+    // Function to perform the AJAX call for updating cart count
+    function updateCartCount() {
+        $.ajax({
+            url: '<?php echo admin_url('admin-ajax.php'); ?>',
+            type: 'POST',
+            data: {
+                'action': 'get_cart_count'
+            },
+            success: function(data) {
+                $('.cart').css('--cart-content', `"${data}"`);
+            },
+            error: function() {
+                $('.cart').css('--cart-content', `"${0}"`);
+            }
+        });
+    }
+
+    // Update cart count after the document loads
+    updateCartCount();
+
+    // Update cart count when any specified button is clicked
+    $('body').on('click', '.product_type_simple, .wc-block-components-quantity-selector__button--plus, .wc-block-components-quantity-selector__button--minus, .wc-block-cart-item__remove-link', function() {
+        setTimeout(updateCartCount, 1500);
+        // updateCartCount();
+    });
+});
+</script>
+
     <header id="header">
         <div class="container">
             <div class="logo">
@@ -31,9 +62,11 @@
                     <nav id="menu">
                     <?php echo $main_menu;?>
                     </nav>
-                    <li><a id="busket" href="<?php echo site_url()?>/cart"><i class="fa-duotone fa-cart-shopping"></i></a></li>
+                    <!-- <li><a href="<?php echo site_url()?>/cart"><i class="fa-duotone fa-cart-shopping"></i></a></li> -->
                     <li><a href="#"><i class="fa-regular fa-magnifying-glass"></i></a></li>
                 </div>
             </div>
         </div>
+        <div id="cart_count"></div>
     </header>
+    <div id="box"></div>

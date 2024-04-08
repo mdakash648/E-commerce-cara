@@ -444,11 +444,11 @@
                                 "append": ""
                             },
                             {
-                                "key": "field_660eafe3f7ab1",
-                                "label": "Product Category",
-                                "name": "product_category",
+                                "key": "field_66118cffe25de",
+                                "label": "Add to cart after hover content",
+                                "name": "product_filter_add_content",
                                 "aria-label": "",
-                                "type": "select",
+                                "type": "text",
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
@@ -457,25 +457,418 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "choices": {
-                                    "uncategorized": "Uncategorized",
-                                    "accessories": "Accessories",
-                                    "hoodies": "Hoodies",
-                                    "hoodies-women": "Hoodies",
-                                    "men": "Men",
-                                    "shirts-women": "Shirts",
-                                    "shirts": "Shirts",
-                                    "women": "Women"
+                                "default_value": "Add Cart",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_66118d63cd144",
+                                "label": "See more after hover content",
+                                "name": "product_filter_see_content",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
                                 },
-                                "default_value": false,
-                                "return_format": "array",
-                                "multiple": 0,
+                                "default_value": "See More",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_660eafe3f7ab1",
+                                "label": "Product Category",
+                                "name": "product_category",
+                                "aria-label": "",
+                                "type": "taxonomy",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "taxonomy": "product_cat",
+                                "add_term": 1,
+                                "save_terms": 0,
+                                "load_terms": 0,
+                                "return_format": "object",
+                                "field_type": "select",
                                 "allow_null": 0,
-                                "ui": 0,
-                                "ajax": 0,
-                                "placeholder": ""
+                                "multiple": 0
+                            },
+                            {
+                                "key": "field_6611796cd9cbf",
+                                "label": "How much product display per page",
+                                "name": "product_posts_per_page",
+                                "aria-label": "",
+                                "type": "number",
+                                "instructions": "If you display all product than use -1",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": -1,
+                                "min": "",
+                                "max": "",
+                                "placeholder": "",
+                                "step": "",
+                                "prepend": "",
+                                "append": ""
                             }
                         ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_661195e08286f": {
+                        "key": "layout_661195e08286f",
+                        "name": "repair_services",
+                        "label": "Repair Services",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_661195ef82871",
+                                "label": "Background Image",
+                                "name": "repair_services_bg_img",
+                                "aria-label": "",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "url",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": "",
+                                "preview_size": "medium"
+                            },
+                            {
+                                "key": "field_6611961082872",
+                                "label": "Title",
+                                "name": "repair_services_title",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "Repair Services",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_6611963773b88",
+                                "label": "discount title",
+                                "name": "repair_services_discount_title",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "Use span tag for change text color white to red. Ex : Up To &lt;span&gt; 70% &lt;\/span&gt; Off",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "Up To 70% Off - All T-Shirts & Accessories",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_6611968ac4e98",
+                                "label": "Button",
+                                "name": "repair_services_button",
+                                "aria-label": "",
+                                "type": "link",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array"
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_6611d193ce00b": {
+                        "key": "layout_6611d193ce00b",
+                        "name": "offer_up_comming",
+                        "label": "Offer Up comming",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_6611d1d0ce00e",
+                                "label": "Offer Up comming Card",
+                                "name": "offer_up_comming_card",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "table",
+                                "min": 0,
+                                "max": 0,
+                                "collapsed": "",
+                                "button_label": "Add Row",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_6611d1e9ce00f",
+                                        "label": "Background Image",
+                                        "name": "offer_up_comming_card_bg_img",
+                                        "aria-label": "",
+                                        "type": "image",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "url",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": "",
+                                        "preview_size": "medium",
+                                        "parent_repeater": "field_6611d1d0ce00e"
+                                    },
+                                    {
+                                        "key": "field_6611d208ce010",
+                                        "label": "1st Title",
+                                        "name": "offer_up_comming_card_1st_title",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "crazy deals",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_6611d1d0ce00e"
+                                    },
+                                    {
+                                        "key": "field_6611d239ce011",
+                                        "label": "2nd Title",
+                                        "name": "offer_up_comming_card_2nd_title",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "buy 1 get 1 free",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_6611d1d0ce00e"
+                                    },
+                                    {
+                                        "key": "field_6611d253ce012",
+                                        "label": "3rd Title",
+                                        "name": "offer_up_comming_card_3rd_title",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "The best classsic dress is on sale of cara",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_6611d1d0ce00e"
+                                    },
+                                    {
+                                        "key": "field_6611d271ce013",
+                                        "label": "Button",
+                                        "name": "offer_up_comming_card_button",
+                                        "aria-label": "",
+                                        "type": "link",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "array",
+                                        "parent_repeater": "field_6611d1d0ce00e"
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_6611dba03e881": {
+                        "key": "layout_6611dba03e881",
+                        "name": "collection",
+                        "label": "Collection",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_6611dbaa3e883",
+                                "label": "Collection Card",
+                                "name": "collection_card",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "table",
+                                "min": 0,
+                                "max": 0,
+                                "collapsed": "",
+                                "button_label": "Add Row",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_6611dbf32b4d3",
+                                        "label": "Background Image",
+                                        "name": "collection_card_background_image",
+                                        "aria-label": "",
+                                        "type": "image",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "url",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": "",
+                                        "preview_size": "medium",
+                                        "parent_repeater": "field_6611dbaa3e883"
+                                    },
+                                    {
+                                        "key": "field_6611dbb43e884",
+                                        "label": "Title",
+                                        "name": "collection_card_title",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "SEASONAL SALE",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_6611dbaa3e883"
+                                    },
+                                    {
+                                        "key": "field_6611dbdc2b4d2",
+                                        "label": "Sub Title",
+                                        "name": "collection_card_sub_title",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "Winter Collection - 50% Off",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_6611dbaa3e883"
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_6612d14e07ba9": {
+                        "key": "layout_6612d14e07ba9",
+                        "name": "shop",
+                        "label": "Shop",
+                        "display": "block",
+                        "sub_fields": [],
                         "min": "",
                         "max": ""
                     }

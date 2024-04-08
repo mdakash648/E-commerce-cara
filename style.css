@@ -16,3 +16,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 input[type=submit], input[type=button], button, .button, .btn-primary, input[type=submit]:hover, input[type=submit]:active, input[type=button]:hover, input[type=button]:active, button:hover, button:active, .button:hover, .button:active, .btn-primary:hover, .btn-primary:active {
     all: unset;
 }
+
+/* .product_type_simple,.wc-block-components-quantity-selector__button--plus,.wc-block-components-quantity-selector__button--minus,.wc-block-cart-item__remove-link{
+    background-color: red !important;
+} */

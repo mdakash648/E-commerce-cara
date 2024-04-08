@@ -4,6 +4,7 @@
         width: 100px;
     }
 </style>
+<div class="container">
 <?php
 //All Product Display
 $args = array(
@@ -35,4 +36,5 @@ else :
     echo '<p>There are no products to display.</p>';
 endif;
 ?>
+</div>
 <?php get_footer()?>

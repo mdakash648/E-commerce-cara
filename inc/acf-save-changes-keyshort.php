@@ -13,8 +13,11 @@
                     document.querySelectorAll('#publish').forEach(function (btn2) {
                         btn2.click();
                     });
-                    document.querySelectorAll('.button').forEach(function (btn3) {
+                    document.querySelectorAll('#save_menu_footer').forEach(function (btn3) {
                         btn3.click();
+                    });
+                    document.querySelectorAll('.save').forEach(function (btn4) {
+                        btn4.click();
                     });
                 }
             });

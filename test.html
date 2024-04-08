@@ -1,9 +1,23 @@
+<div class="box">
+  <div class="inner_box inner_box1"></div>
+  <div class="inner_box inner_box2"></div>
+  <div class="inner_box inner_box3"></div>
+  <div class="inner_box inner_box4"></div>
+  <div class="inner_box inner_box5"></div>
+  <div class="inner_box inner_box6"></div>
+</div>
 <style>
-    ins{
-        text-decoration: none;
-    }
+  .box{
+    display: flex;
+  }
+  .inner_box{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-color: red;
+    transition: opacity 0.6s;
+  }
+  .inner_box:hover>:not(:hover){
+    opacity: 0.4;
+  }
 </style>
-
-<h5><del aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi>14.99<span class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi></span></del> <ins><span class="woocommerce-Price-amount amount"><bdi>12.99<span class="woocommerce-Price-currencySymbol">৳&nbsp;</span></bdi></span></ins></h5>
-
-<ins>Akash</ins>

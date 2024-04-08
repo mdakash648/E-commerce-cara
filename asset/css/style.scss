@@ -312,6 +312,28 @@ td, th {
                 display: block;
             }
         }
+
+        .cart {
+            position: relative;
+            &::after{
+                content: var(--cart-content, '');;
+                position: absolute;
+                top: -10px;
+                z-index: -1;
+                background-color: red;
+                min-width: 20px;
+                min-height: 20px;
+                width: max-content;
+                height: max-content;
+                border-radius: 50%;
+                font-size: 12px;
+                font-weight: 600;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+            }
+        }
     }
 }
 .current-menu-item, .current_page_item{
@@ -606,7 +628,7 @@ td, th {
                 text-decoration: none;
             }
         }
-        .product_type_variable{
+        .product_type_variable,.product_type_simple{
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -620,13 +642,34 @@ td, th {
             border: 1px solid #cce7d0;
             transition: 0.3s ease;
             cursor: pointer;
+            &::after{
+                position: absolute;
+                bottom: -17px;
+                width: max-content;
+                visibility: hidden;
+                opacity: 0;
+                transition: 0.3s ease-out;
+                font-size: 12px;
+                transform: translateY(5px);
+            }
             &:hover{
                 color: #0ecd25;
+                &::after{
+                    visibility: visible;
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
             &::before{
                 content: "\f217";
                 font-family: "Font Awesome 6 Pro";
                 font-weight: 400;
+            }
+        }
+        .product_type_variable{
+            &::before{
+                content: "\f475" ;
+                font-weight: 900;
             }
         }
     }
@@ -662,6 +705,9 @@ td, th {
             color: #1a1a1a;
             border-radius: 5px;
             transition: 0.3s ease;
+            padding: 8px 20px;
+            font-size: 16px;
+            font-weight: 600;
             &:hover{
                 background-color: #088178;
                 color: #fff;
@@ -671,7 +717,7 @@ td, th {
 }
 //new Arrival section css code start:
 .newArrival{
-    padding-top: 80px;
+    margin-top: 80px;
 }
 // offer and upcomming season section css code start : 
 #OfferUpcomming{
@@ -683,23 +729,19 @@ td, th {
             justify-content: space-between;
         }
         .Offer{
-            width: 290px;
-            margin-bottom: 20px;
+            width: 100%;
             padding: 100px 20px;
             color: #fff;
             @include backgroundImgControl();
-            @include minwidth(576px){
-                width: 350px;
-            }
+            background-color: #0000003d ;
+            background-blend-mode: multiply;
+            margin-bottom: 10px;
             @include minwidth(768px){
-                width: 400px;
+                width: 80%;
             }
             @include minwidth(992px){
-                width: 48.6%;
-                margin-bottom: 0;
-            }
-            @include minwidth(1400px){
-                width: 49%;
+                width: calc(50% - 10px);
+                margin-bottom: 20px;
             }
         }
         .oDescription{
@@ -711,6 +753,13 @@ td, th {
             border: 1px solid #fff;
             text-transform: capitalize;
             transition: 0.3s ease;
+            background-color: transparent;
+            border: 1px solid #fff;
+            text-transform: capitalize;
+            transition: 0.3s ease;
+            color: white;
+            font-size: 16px;
+            padding: 8px 20px;
             &:hover{
                 background-color: #088178;
                 border-color: #088178;
@@ -719,55 +768,40 @@ td, th {
     }
 }
 //bannerTwo section css code start: 
-#bannerTwo{
-    padding-bottom: 40px;
+#collection{
+    margin-bottom: 40px;
     .container{
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        @include minwidth(992px){
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
+        flex-wrap: wrap;
+        @include minwidth(768px){
+            justify-content: center;
         }
-        .bannerbox{
-            width: 290px;
-            padding:90px 15px;
-            transition: transform 0.6s ease;
-            margin-bottom: 20px;
-            &:nth-last-child(1){
-                margin-bottom: 0
-            }
-            @include backgroundImgControl();
-            @include minwidth(576px){
-                width: 350px;
-            }
+        @include minwidth(768px){
+            justify-content: flex-start;
+        }
+        .collectionMain{
+            overflow: hidden;
+            width: 100%;
+            min-height: 100%;
+            background-color: red;
+            margin:5px 5px;
             @include minwidth(768px){
-                width: 400px;
+                width: calc(50% - 10px);
             }
-            @include minwidth(992px){
-                width: 30%;
-                height: 240px;
-                margin: 0 19px 0 0;
-                &:nth-last-child(1){
-                    margin-right: 0;
-                }
+            @include minwidth(1200px){
+                width: calc(var(--min-1200-width) - 10px);
             }
+        }
+        .collectionbox{
+            text-align: center;
+            padding: 50px 0;
+            height: 100%;
+            transition: 0.5s ease;
+            @include backgroundImgControl();
             &:hover{
                 transform: scale(1.1);
             }
 
-        }
-        .bannerBoxTwo{
-            @include minwidth(992px){
-                width: 35.9%;
-            }
-            @include minwidth(1200px){
-                width: 36.5%;
-            }
-            @include minwidth(1400px){
-                width: 37%;
-            }
         }
         h4{
             color: #fff;
@@ -866,12 +900,14 @@ td, th {
             font-size: 14px;
         }
         button{
-            width: 100px;
+            // width: 100px;
+            width: max-content;
+            padding: 0 20px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
             height: 100%;
             background-color: #088178;
-            @include minwidth(576px){
-                width: 110px;
-            }
         }
 
     }
