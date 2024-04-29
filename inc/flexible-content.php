@@ -87,8 +87,8 @@ if (have_rows('easy_content')) {
             <div class="allFeatureProduct">
 
                 <?php
-                $category_slug =  get_sub_field('product_category')->slug; // Replace 'your-category-slug' with the slug of the category you want to filter by.
-
+               $category_slug =  get_sub_field('product_category')?get_sub_field('product_category')->slug:'uncategorized'; 
+               $category_name =  get_sub_field('product_category')?get_sub_field('product_category')->name:'Uncategorized';
                 $args = array(
                     'post_type' => 'product',
                     'post_status' => 'publish',
@@ -142,7 +142,7 @@ if (have_rows('easy_content')) {
                     the_posts_pagination();
                     wp_reset_postdata(); // Important: Reset query data after the loop 
                 else :
-                    echo '<p>There are no products in'.' '.get_sub_field('product_category')->name .' '.'cetagory.</p>';
+                    echo '<p>There are no products in'.' '.$category_name .' '.'cetagory.</p>';
                 endif;
                 ?>
 
@@ -238,68 +238,113 @@ if (have_rows('easy_content')) {
             <div class="allFeatureProduct">
 
                 <?php
-                $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1; // Step 2: Get current page number.
+                $post_per_pages = get_sub_field('shop_post_per_page');
                 $args = array(
                     'post_type' => 'product',
                     'post_status' => 'publish',
-                    'posts_per_page' => 12, // Adjust the number of products to display. Use -1 for all products.
-                    'paged' => $paged, // Include the current page.
+                    'posts_per_page' => $post_per_pages, // Adjust the number of products to display. Use -1 for all products.                    
                 );
-                $project_query = new WP_Query($args);
-                if ($project_query->have_posts()) :
-                    while ($project_query->have_posts()) : $project_query->the_post();
+                $shop_query = new WP_Query($args);
+                if ($shop_query->have_posts()) :
+                    while ($shop_query->have_posts()) : $shop_query->the_post();
                     global $product;
                     $product = wc_get_product(get_the_ID()); // Ensure $product is the correct product object
                     ?>
 
-                        <div class="fProduct">
-                            <div class="fProducttop">
-                               <a href="sProduct.html" class="fProductImg">
-                                   <img src="<?php $product_filter_img_url = get_the_post_thumbnail_url()?get_the_post_thumbnail_url():(get_template_directory_uri().'/asset/img/products/n1.jpg'); echo $product_filter_img_url; ?>" alt="<?php $product_filter_img_alt = get_the_title()?get_the_title():'Product Image';echo $product_filter_img_alt;?>">
-                               </a>
-                               <p class="company_name"><?php echo esc_html(get_field('company_name'));?></p>
-                               <a class = "fProduct_title" href="sProduct.html"><?php the_title()?></a>
-                               <?php 
-                               $rating_html = wc_get_rating_html($product->get_average_rating());
+                    <div class="fProduct">
+                        <div class="fProducttop">
+                           <a href="sProduct.html" class="fProductImg">
+                               <img src="<?php $product_filter_img_url = get_the_post_thumbnail_url()?get_the_post_thumbnail_url():(get_template_directory_uri().'/asset/img/products/n1.jpg'); echo $product_filter_img_url; ?>" alt="<?php $product_filter_img_alt = get_the_title()?get_the_title():'Product Image';echo $product_filter_img_alt;?>">
+                           </a>
+                           <p class="company_name"><?php echo esc_html(get_field('company_name'));?></p>
+                           <a class = "fProduct_title" href="sProduct.html"><?php the_title()?></a>
+                           <?php 
+                           $rating_html = wc_get_rating_html($product->get_average_rating());
 
-                                // Check if rating exists and display it
-                                if (!empty($rating_html)) {
-                                    echo $rating_html;
-                                }?>
-                               
-                            </div>
-                            <div class="fProductText_bottom">
-                                <h5><?php echo $product->get_price_html(); ?></h5>
-                                <?php woocommerce_template_loop_add_to_cart();?>
-                                <style>
-                                    .product_type_simple::after{
-                                        content:"<?php echo esc_html('Simple Product')?>";
-                                    }
-                                    .product_type_variable::after{
-                                        content:"<?php echo esc_html('Variavle Product')?>";
-                                    }
-                                </style>
-                            </div>
+                            // Check if rating exists and display it
+                            if (!empty($rating_html)) {
+                                echo $rating_html;
+                            }?>
+                           
                         </div>
+                        <div class="fProductText_bottom">
+                            <h5><?php echo $product->get_price_html(); ?></h5>
+                            <?php woocommerce_template_loop_add_to_cart();?>
+                            <style>
+                                .product_type_simple::after{
+                                    content:"<?php echo esc_html(get_sub_field('shop_add_content'))?>";
+                                }
+                                .product_type_variable::after{
+                                    content:"<?php echo esc_html(get_sub_field('shop_see_content'))?>";
+                                }
+                            </style>
+                        </div>
+                    </div>
                 <?php 
                     endwhile;
-                      // Step 3: Display pagination links.
-                $big = 999999999; // Need an unlikely integer.
-                echo paginate_links(array(
-                    'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-                    'format' => '?paged=%#%',
-                    'current' => max(1, get_query_var('paged')),
-                    'total' => $project_query->max_num_pages,
-                ));
                     wp_reset_postdata(); // Important: Reset query data after the loop 
+                ?>
+                <?php
+                $total_product = $shop_query->found_posts;
                 else :
                     echo '<p>No Product</p>';
                 endif;?>
             </div>
+
+            <div id="loading"></div>
+            <div class="loadmore_main"><div class="loadmore"><?php echo get_sub_field('shop_load_more_button_text');?></div></div>
+
         </div>
     </section>
     <!-- Product Filter Section Start -->
+  
+    
+    <script>
+    
+        // // JavaScript to handle clicks and count
+        let count = 1; // Initialize counter
+    
+        document.querySelector('.loadmore').addEventListener('click', function() {
+        count++; // Increment counter
+        });
+    
+
+        jQuery(document).ready(function ($) {
+            $(".loadmore").click(function() {
+                // Show loading message
+                $('#loading').css('display', 'block');
+                // $('#loading').html('Content is loading');
+                let ajaxData = {
+                    'action': 'product_load',
+                    'count': count,
+                    'total_pro': '<?php echo $total_product; ?>', // Ensure PHP variables are safely encoded
+                    'post_per_pages': '<?php echo $post_per_pages; ?>',
+                    'shop_add_content': '<?php echo get_sub_field('shop_add_content'); ?>',
+                    'shop_see_content': '<?php echo get_sub_field('shop_see_content'); ?>'
+                };
+                $.ajax({
+                    url: '<?php echo admin_url("admin-ajax.php"); ?>',
+                    type: 'POST',
+                    data: ajaxData,
+                    success: function (response) {
+                        // Insert the received response into the specified element
+                        $('.allFeatureProduct').html(response);
+                        // Hide loading message
+                        $('#loading').css('display', 'none');
+                    },
+                    error: function () {
+                        // Handle errors
+                        $('#loading').html('Failed to load content');
+                        $('#loading').css('display', 'none');
+                    }
+                });
+            });
+        });
+
+    </script>
+
 <?php endif;?>
+
 
 
 <?php

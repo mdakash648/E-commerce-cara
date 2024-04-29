@@ -20,6 +20,9 @@ $secondaryColor: #0d1931;
 $whiteColor: #fff;
 $skyBlue: #088178;
 $allHeading: 'h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6';
+html{
+    cursor: url(../img/cursor.png), auto;
+}
 body{
 
     font-family: $primaryFont;
@@ -315,8 +318,9 @@ td, th {
 
         .cart {
             position: relative;
-            &::after{
-                content: var(--cart-content, '');;
+
+            .counter{
+               content: var(--cart-count-number);
                 position: absolute;
                 top: -10px;
                 z-index: -1;
@@ -336,6 +340,16 @@ td, th {
         }
     }
 }
+
+//modal
+.modal_close_btn{
+    color: black;
+    transition: 0.2s;
+    cursor: pointer;
+    &:hover{
+        color: $skyBlue;
+    }
+}
 .current-menu-item, .current_page_item{
     a{
         color: $skyBlue !important;
@@ -344,28 +358,7 @@ td, th {
         }
     }
 }
-#busket{
-    position: relative;
-    &::before{
-        content:  var(--busket-before-content);
-        width: max-content;
-        min-width: 20px;
-        aspect-ratio: 1 / 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-weight: 400;
-        font-size: 12px;
-        border-radius: 50%;
-        padding: 3px;
-        position: absolute;
-        // right: 0;
-        top: -15px;
-        background-color: red;
-        z-index: -1;
-    }
-}
+
 //banner section css code start: 
 #banner{
     background-color: #ffffff;
@@ -560,6 +553,14 @@ td, th {
             justify-content: unset;
         }
     }
+    @keyframes loading {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
     .fProduct{
         display: flex;
         flex-direction: column;
@@ -718,6 +719,7 @@ td, th {
 //new Arrival section css code start:
 .newArrival{
     margin-top: 80px;
+    cursor: url(../img/cursor.cur), auto;
 }
 // offer and upcomming season section css code start : 
 #OfferUpcomming{
@@ -1175,6 +1177,7 @@ td, th {
     .singleBlog{
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 70px;
@@ -1544,6 +1547,90 @@ td, th {
         img{
             width: 60px;
             border-radius: 10px;
+        }
+    }
+}
+
+#loading{
+    display: none;
+    border:  3px solid #F1F1F1 ;
+    border-top-color: #041E42;
+    border-radius: 50%;
+    // animation: loading 2s ease-in-out 0s alternate both;
+    animation: loading 0.5s ease-in-out 0s infinite normal both;
+    width: 30px;
+    aspect-ratio: 1 / 1;
+    margin: 18px auto;
+}
+.loadmore_main{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.loadmore{
+    background-color: #088178;
+    width: max-content;
+    padding: 10px 20px;
+    border-radius:5px ;
+    color: white;
+    text-transform: capitalize;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+    &:hover{
+        background-color: #0ECD25;
+    }
+}
+
+
+
+.search_form{
+    margin: auto;
+    margin-bottom: 16px;
+}
+#search-input{
+    outline: unset;
+    width: 80%;
+}
+#search_btn{
+    padding: 5px;
+    border-radius: 5px;
+    transition: 0.3s;
+    &:hover{
+        background: #0f61d9;
+        color: white;
+    }
+}
+
+.search_result_con{
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .left_box{
+        width: 30%;
+        overflow: hidden;
+        &:hover{
+            .sear_res_img{
+                transform: scale(1.1);
+            }
+        }
+        .sear_res_img{
+            width: 100%;
+            transition: 0.3s ease;
+        }
+    }
+    .right_box{
+        width: calc(70% - 10px);
+    }
+    a{
+        text-decoration: none;
+        color: black;
+        transition: 0.3s;
+        text-transform: capitalize;
+        &:hover{
+            color: blue;
         }
     }
 }

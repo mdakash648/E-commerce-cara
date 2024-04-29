@@ -31,6 +31,8 @@ require_once 'inc/wc-customize.php';
 include  'inc/acf-save-changes-keyshort.php' ;
 // include  'inc/acf_choice_field_up_category.php' ;
 include  'inc/cart_pro_count.php' ;
+include  'inc/ajax_laod.php' ;
+include  'inc/ajax_search.php' ;
 
 
 

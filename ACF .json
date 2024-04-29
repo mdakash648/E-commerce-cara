@@ -1,4 +1,156 @@
+
+
+
 [
+    {
+        "key": "group_662ca5d79ab1b",
+        "title": "Blog",
+        "fields": [
+            {
+                "key": "field_662cbb9902704",
+                "label": "Banner Background Image",
+                "name": "blog_banner_bg_img",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_662cbc0502705",
+                "label": "Banner Title",
+                "name": "blog_banner_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "#readmore",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_662cbcd4e9527",
+                "label": "Banner Sub title",
+                "name": "blog_banner_sub_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Read all case studies about our products!",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_662ca5d7fe87c",
+                "label": "Blog Per page",
+                "name": "blog_post_per_pages",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 10,
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_662ca95f90311",
+                "label": "Continue Reading Text",
+                "name": "blog_continue_reading_text",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "continue reading",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_662cadd9bd1c8",
+                "label": "Load More Button Text",
+                "name": "blog_load_more_button_text",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "load more",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-blog"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
     {
         "key": "group_660df3c05aadf",
         "title": "Header",
@@ -503,7 +655,7 @@
                                 "load_terms": 0,
                                 "return_format": "object",
                                 "field_type": "select",
-                                "allow_null": 0,
+                                "allow_null": 1,
                                 "multiple": 0
                             },
                             {
@@ -868,7 +1020,90 @@
                         "name": "shop",
                         "label": "Shop",
                         "display": "block",
-                        "sub_fields": [],
+                        "sub_fields": [
+                            {
+                                "key": "field_6626ff0de3f0a",
+                                "label": "Add to cart after hover content",
+                                "name": "shop_add_content",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "Add Cart",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_6626ff6fe3f0d",
+                                "label": "See more after hover content",
+                                "name": "shop_see_content",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "See More",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_6625609cb8ea7",
+                                "label": "Post per page",
+                                "name": "shop_post_per_page",
+                                "aria-label": "",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": 8,
+                                "min": 1,
+                                "max": "",
+                                "placeholder": "",
+                                "step": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_662808f8abeeb",
+                                "label": "Load More button text",
+                                "name": "shop_load_more_button_text",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "Load more",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            }
+                        ],
                         "min": "",
                         "max": ""
                     }

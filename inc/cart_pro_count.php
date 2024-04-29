@@ -1,5 +1,5 @@
 <?php 
-function get_cart_count() {
+function get_cart_counts() {
     if ( function_exists( 'WC' ) ) {
         echo WC()->cart->get_cart_contents_count();
     } else {
@@ -9,6 +9,6 @@ function get_cart_count() {
 }
 
 // Adding AJAX actions for logged-in and logged-out users
-add_action( 'wp_ajax_nopriv_get_cart_count', 'get_cart_count' );
-add_action( 'wp_ajax_get_cart_count', 'get_cart_count' );
+add_action( 'wp_ajax_nopriv_get_cart_counts', 'get_cart_counts' );
+add_action( 'wp_ajax_get_cart_counts', 'get_cart_counts' );
 ?>

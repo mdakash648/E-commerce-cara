@@ -18,6 +18,12 @@ if( function_exists('acf_add_options_page') ) {
         'capability'    => 'edit_theme_options',
     ));
     acf_add_options_sub_page(array(
+        'page_title'    => 'Theme blog Settings',
+        'menu_title'    => 'Blog',
+        'parent_slug'   => 'theme-option-settings',
+        'capability'    => 'edit_theme_options',
+    ));
+    acf_add_options_sub_page(array(
         'page_title'    => 'Theme Footer Settings',
         'menu_title'    => 'Footer',
         'parent_slug'   => 'theme-option-settings',

@@ -12,22 +12,27 @@
 <script>
 jQuery(document).ready(function($) {
     // Function to perform the AJAX call for updating cart count
+
     function updateCartCount() {
         $.ajax({
             url: '<?php echo admin_url('admin-ajax.php'); ?>',
             type: 'POST',
             data: {
-                'action': 'get_cart_count'
+                'action': 'get_cart_counts'
             },
             success: function(data) {
-                $('.cart').css('--cart-content', `"${data}"`);
+                let counter = $('<span>', {
+                    'class': 'counter',
+                    text: data,
+                });
+                $('.cart').append(counter);
             },
             error: function() {
-                $('.cart').css('--cart-content', `"${0}"`);
+                $('.cart').attr('style', `--cart-contents:0;`);
             }
         });
     }
-
+    
     // Update cart count after the document loads
     updateCartCount();
 
@@ -38,7 +43,6 @@ jQuery(document).ready(function($) {
     });
 });
 </script>
-
     <header id="header">
         <div class="container">
             <div class="logo">
@@ -62,11 +66,54 @@ jQuery(document).ready(function($) {
                     <nav id="menu">
                     <?php echo $main_menu;?>
                     </nav>
-                    <!-- <li><a href="<?php echo site_url()?>/cart"><i class="fa-duotone fa-cart-shopping"></i></a></li> -->
-                    <li><a href="#"><i class="fa-regular fa-magnifying-glass"></i></a></li>
+                    <li id="search" data-bs-toggle="modal" data-bs-target="#search_modal"><a><i class="fa-regular fa-magnifying-glass"></i></a></li>
                 </div>
+
             </div>
         </div>
-        <div id="cart_count"></div>
     </header>
-    <div id="box"></div>
+    <!-- Modal -->
+    <div class="modal fade" id="search_modal" tabindex="-1" aria-labelledby="search_modal_Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header justify-content-between">
+                    <h5 class="modal-title" id="search_modal_Label">Search</h5>
+                    <i class="modal_close_btn fa-regular fa-xmark" data-bs-dismiss="modal" aria-label="Close"></i>
+                </div>
+                <div class="modal-body">
+                    <div class="search_container">
+                        <form role="search" method="get" class="search_form" action="<?php echo home_url( '/' ); ?>">
+                            <input type="search" class="search-field" placeholder="Search..." name="s" id="search-input" />
+                            <button id="search_btn" type="submit">Search</button>
+                        </form>
+                        <div id="search-results"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+<script>
+jQuery(document).ready(function($) {
+    $('#search-input').on('keyup', function() {
+        var searchTerm = $(this).val();
+        if (searchTerm.length > 2) { // Adjust minimum characters to trigger
+
+            $.ajax({
+                url: '<?php echo admin_url('admin-ajax.php'); ?>', 
+                type: 'POST',
+                data: {
+                    action: 'my_ajax_search',
+                    search: searchTerm
+                },
+                success: function(response) {
+                    $('#search-results').html(response); 
+                }
+            });
+        } else {
+            $('#search-results').html(''); // Clear results on short input
+        }
+    });
+});
+</script> 
